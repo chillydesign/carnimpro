@@ -8,7 +8,7 @@
         <?php $tdu  = get_template_directory_uri(); ?>
         <link href="<?php echo $tdu; ?>/img/icons/favicon.ico" rel="shortcut icon">
         <link href="<?php echo $tdu; ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
-        <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet"> -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="<?php bloginfo('description'); ?>">

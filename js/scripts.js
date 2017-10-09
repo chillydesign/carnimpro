@@ -1,34 +1,62 @@
+import underscore from '../node_modules/underscore/underscore.js'
+
 (function ($, root, undefined) {
 
-	$(function () {
+    $(function () {
 
-		'use strict';
-
-
-		console.log('scripts working !');
+        'use strict';
 
 
-				var $navigation_menu = $('#navigation_menu');
-				var $menu_button = $('#menu_button');
 
-				$menu_button.on('click', function(){
+        var $form_buttons = $('.form_button');
+        $form_buttons.each(function(i){
+            var $button = $(this);
 
-					$navigation_menu.toggleClass('menu_visible');
+            var $checkboxes = $('input[type="checkbox"]', $button);
 
-				});
+            var $span = $('span', $button);
 
-				// if press escape key, hide menu
-				$(document).on('keydown', function(e){
+            var $nicer_select = $('.nicer_select', $button);
 
-					if(e.keyCode == 27 ){
-						$navigation_menu.removeClass('menu_visible');
+            $button.on('click', function(e){
 
-				 		$('.search_box').removeClass('visible');
-					}
+                $nicer_select.toggleClass('visible');
 
-				})
+            });
 
 
-	});
+            var $nicer_options = $('.nicer_option', $nicer_select);
+            $nicer_options.on('click', function(f) {
+                f.stopPropagation();
+
+                var $nicer_option = $(this);
+                var $value = $nicer_option.data('value');
+
+                for (var c = 0; c < $checkboxes.length; c++) {
+                    var $checkbox = $($checkboxes[c]);
+                    if ($checkbox.val() == $value ) {
+                        var $is_checked = $checkbox.prop('checked');
+                        // uncheck if checked, check if unchecked;
+                        $checkbox.prop('checked' ,  !$is_checked  );
+                        if ($is_checked) {
+                            $nicer_option.removeClass('checked');
+                        } else {
+                            $nicer_option.addClass('checked');
+                        }
+
+                    };
+                }
+
+            })
+
+
+
+
+        });
+
+
+
+
+    });
 
 })(jQuery, this);

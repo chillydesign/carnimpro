@@ -12,11 +12,25 @@ p.date_of_event {
 }
 
 
+
+
 #accueil {
-    .page_content {
-        padding-bottom: 50px;
+
+}
+
+@media (min-width: 768px){
+
+    #accueil {
+        .page_content {
+            padding-bottom: 50px;
+        }
     }
 }
+
+
+
+
+
 
 
 #contact {
@@ -30,6 +44,6 @@ p.date_of_event {
         max-width: 750px;
         margin: auto;
         display: inline-block;
-        font-size: #{$font_size * 1.8};
+        font-size: #{$font_size * 1.2};
     }
 }

@@ -6,8 +6,105 @@
         padding-top: 50px;
         padding-bottom: 50px;
 
+
+        input, .form_button, button {
+            background: white;
+            appearance:none;
+            border:0;
+            padding: 20px 40px;
+            color: $medium_grey;
+            font-size: #{$font_size };
+            font-family: $font_stack;
+            text-transform: lowercase;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 0 15px 15px 0;
+            transition: all 0.3s;
+        }
+
+        ::placeholder {
+            color: $medium_grey;
+        }
+
+        input {
+            min-width: 350px
+        }
+
+        .form_button {
+            position: relative;
+                cursor: pointer;
+
+            .nicer_select {
+                display: none;
+                position: absolute;
+                top:100%;
+                left: 0;
+                width: 250px;
+                z-index: 100;
+
+
+
+
+                .nicer_option {
+                    padding:10px 10px;
+                    display: block;
+                    background: darken($yellow, 10);
+                    color: white;
+                    cursor: pointer;
+                    border-bottom: 1px dotted $yellow;
+
+                    &:hover {
+                        background-color: darken($yellow, 15);
+                    }
+
+                    &:first-child {
+                            border-radius: 15px 15px 0 0;
+                    }
+                    &:last-child {
+                            border-radius: 0 0 15px 15px ;
+                    }
+
+                    &.checked {
+                        background-color: darken($yellow, 20);
+                    }
+                }
+
+                &.visible {
+                    display: inline-block;
+                }
+            }
+
+            &:hover {
+                background-color: $yellow;
+                color: white;
+
+            }
+
+            input {
+                // width: auto;
+                // appearance: checkbox;
+                display: none;
+                visibility: hidden;
+            }
+
+        }
+
+        button {
+            background-color: $blue;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+                background-color: darken($blue, 15);
+            }
+        }
+
+
+
+
+
         .background_color {
-            background-color: #474646;
+            background-color: $dark_grey;
             opacity: 0.1;
             position: absolute;
             top:0;
@@ -20,4 +117,97 @@
 
 
 
+}
+
+
+
+ul#workshops {
+
+    margin:0px 0 100px;
+
+
+
+
+    li.workshop {
+
+        border-bottom: 1px solid lighten($blue, 10);
+        padding: 10px 0 20px;
+        margin:0 0 20px;
+        font-size: 1em;
+    }
+
+
+
+
+    .workshop_info {
+        display: block;
+    }
+
+
+    p {
+        font-size: #{$font_size * 0.85};
+        color: lighten($font_color, 30);
+        padding: 0;
+    }
+
+    .workship_meta {
+
+        flex:1;
+        padding-top: 10px;
+
+
+
+
+        a {
+
+            border-radius: 25px;
+            display: inline-block;
+            margin:0 5px 10px 0;
+            background-color: $blue;
+            color: white;
+            padding:10px 20px;
+            font-size:  #{$font_size * 0.9 };
+
+
+
+
+            &.dates {
+                text-transform: uppercase;
+                background: $green;
+                span {
+                    opacity: 0.3
+                }
+                &:hover {
+                    background-color: darken($green, 20);
+                }
+            }
+
+            &.read_more {
+
+                &:hover {
+                    background-color: darken($blue, 20);
+                }
+
+            }
+        }
+
+
+
+    }
+}
+
+
+@media (min-width: 768px){
+
+    ul#workshops {
+
+        .workshop_info {
+            display: flex;
+        }
+
+        .workship_meta {
+            text-align: right;
+            padding-left:10px;
+        }
+    }
 }
