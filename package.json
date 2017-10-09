@@ -1,0 +1,35 @@
+{
+  "name": "blanktheme",
+  "version": "0.0.2",
+  "description": "This is the blank theme used by webfactor.ch when starting new wordpress projects.",
+  "main": "index.php",
+  "scripts": {
+    "test": "say test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chillydesign/blanktheme.git"
+  },
+  "keywords": [
+    "wordpress",
+    "webfactor",
+    "blank",
+    "theme"
+  ],
+  "author": "Charles Harvey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chillydesign/blanktheme/issues"
+  },
+  "homepage": "https://github.com/chillydesign/blanktheme#readme",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-minify": "^1.0.0",
+    "gulp-sass": "^3.1.0",
+    "webpack": "^3.0.0"
+  }
+}
