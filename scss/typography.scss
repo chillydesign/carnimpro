@@ -1,0 +1,106 @@
+
+/*TYPOGRAPHY*/
+
+h1 {
+    font-size: 3.9em;
+    padding: 0px 0 30px;
+    font-weight: normal;
+    line-height: 130%;
+}
+h2 {
+    font-size: 2.9em;
+    padding: 0 0 20px;
+
+}
+h3 {
+    font-size: 2.21em;
+    padding:0 0 20px;
+}
+
+h4 {
+    font-size: 1.69em;
+    padding:0 0 10px;
+
+
+}
+
+
+
+@media (min-width: 768px){
+    h1 {font-size: 4em;}
+    h2 {font-size: 3.5em}
+    h3 {font-size: 2.41em}
+    h4 {font-size: 1.79em}
+
+}
+
+
+
+
+p {
+    font-size: $font_size;
+    padding:0 0 30px;
+    line-height: 160%;
+    color: lighten($font_color, 10);
+}
+li {
+    font-size: $font_size;
+    padding:0 0 5px;
+    line-height: 160%
+}
+
+
+
+
+li li, li p {font-size: inherit;}
+ul ul , ul ol, ol ol {font-size: inherit}
+
+
+
+
+
+
+
+a {
+    text-decoration: none;
+    border-bottom: 1px dotted $blue;
+    transition: all 0.3s;
+
+    &:link, &:visited, &:active {
+        color: $blue
+    }
+    &:hover {
+        border-bottom: 1px solid $blue;
+
+    }
+}
+
+
+
+
+strong, b {font-weight: bold;}
+em, i {font-style: italic}
+
+table {
+    width: 100%;
+    margin:0 0 40px;
+}
+
+th, td {font-size: 1.5em;padding:10px;border:0}
+section td {font-size: 2em;line-height: 160%;padding:0 0 10px;}
+
+blockquote {
+    padding:20px 0 20px 40px;
+    border-left:4px solid #888;
+    margin:40px 20px 40px 40px;
+    font-size: 140%;
+    font-style: italic;
+    max-width: 700px;
+}
+blockquote p:last-child {padding-bottom: 0}
+
+
+// FORMS
+form {}
+input {padding: 10px;width: 100%;font-size: 1.5em;appearance:none;}
+textarea {}

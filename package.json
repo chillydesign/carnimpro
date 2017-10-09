@@ -1,14 +1,14 @@
 {
-  "name": "blanktheme",
+  "name": "carnimprotheme",
   "version": "0.0.2",
-  "description": "This is the blank theme used by webfactor.ch when starting new wordpress projects.",
+  "description": "Wordpress them for CarnImpro.",
   "main": "index.php",
   "scripts": {
     "test": "say test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chillydesign/blanktheme.git"
+    "url": "git+https://github.com/chillydesign/carnimpro.git"
   },
   "keywords": [
     "wordpress",
@@ -19,9 +19,9 @@
   "author": "Charles Harvey",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chillydesign/blanktheme/issues"
+    "url": "https://github.com/chillydesign/carnimpro/issues"
   },
-  "homepage": "https://github.com/chillydesign/blanktheme#readme",
+  "homepage": "https://github.com/chillydesign/carnimpro#readme",
   "dependencies": {
     "jquery": "^3.2.1"
   },

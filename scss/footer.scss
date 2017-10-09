@@ -1,16 +1,43 @@
 
 
 /*FOOTER*/
-footer {
-	background:#222;
-	color: #ddd;
-	padding:20px 0;
-	margin:20px 0 0;
-}
 
-footer p {
-	padding:0
-}
-footer a {
+$footer_img_height: 100px;
+footer {
+	background:$blue;
 	color: white;
+	padding: 0;
+	margin:50px 0 0;
+    position: relative;
+    min-height: $footer_img_height;
+    .container {
+        position: relative;
+    }
+
+    p {
+    	padding:50px 0;
+        color: transparentize(white,0.2);
+    }
+
+    img {
+        padding:  0;
+        height: $footer_img_height;
+        right: 0;
+        top:20px;
+        position: absolute;
+
+    }
+
+    a {
+    	color: white;
+        &:link, &:visited, &:active {
+            color: white;
+                border-bottom: 1px dotted white;
+        }
+        &:hover {
+            border-bottom: 1px solid white;
+
+        }
+    }
+
 }

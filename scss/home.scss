@@ -1,0 +1,35 @@
+p.date_of_event {
+    text-transform: uppercase;
+    color: $red;
+    font-size: #{$font_size * 1.5};
+}
+
+
+#large_logo {
+    opacity: 0.6;
+    width: 100%;
+    height: auto;
+}
+
+
+#accueil {
+    .page_content {
+        padding-bottom: 50px;
+    }
+}
+
+
+#contact {
+    text-align: center;
+
+    h2 {
+
+    }
+
+    p {
+        max-width: 750px;
+        margin: auto;
+        display: inline-block;
+        font-size: #{$font_size * 1.8};
+    }
+}
