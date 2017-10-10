@@ -4,7 +4,7 @@
         top: -50px;
         position: relative;
         padding-top: 50px;
-        padding-bottom: 50px;
+        padding-bottom: 35px;
 
 
         input, .form_button, button {
@@ -43,15 +43,28 @@
                 z-index: 100;
 
 
+            &:after {
+                content:'';
+                border: 6px solid transparent;
+                border-top:6px solid darken($yellow, 7);
+                border-left: 6px solid darken($yellow, 7);
+                width: 0px;
+                height:0px;
+                position: absolute;
+                top:-6px;
+                left: 30px;
+                transform: rotate(45deg);
+            }
+
 
 
                 .nicer_option {
                     padding:10px 10px;
                     display: block;
-                    background: darken($yellow, 10);
+                    background: darken($yellow, 7);
                     color: white;
                     cursor: pointer;
-                    border-bottom: 1px dotted $yellow;
+                    border-bottom: 1px solid $yellow;
 
                     &:hover {
                         background-color: darken($yellow, 15);
