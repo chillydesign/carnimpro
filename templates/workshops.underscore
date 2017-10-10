@@ -1,0 +1,26 @@
+<ul id="workshops">
+
+ <%  _.each(workshops,function(workshop,key,list){  %>
+
+
+
+    <li class="workshop">
+        <div class="container">
+            <h3><%= workshop.post_title %></h3>
+            <div class="workshop_info">
+                <p><%= workshop.post_content %></p>
+
+                <div class="workship_meta">
+                    <a title="<%= workshop.jour %>"   class="dates"><%= workshop.days %></a>
+                    <a    href="<%= workshop.guid %>" class=" read_more"> Voir plus</a>
+                </div>
+            </div>
+        </div>
+    </li>
+
+
+<% }) %>
+
+
+
+</ul>

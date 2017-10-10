@@ -170,7 +170,6 @@ ul#workshops {
 
 
 
-
         a {
 
             border-radius: 25px;
@@ -187,8 +186,10 @@ ul#workshops {
             &.dates {
                 text-transform: uppercase;
                 background: $green;
+                cursor: default;
+                color: transparentize(white, 0.7);
                 span {
-                    opacity: 0.3
+                    color: white;
                 }
                 &:hover {
                     background-color: darken($green, 20);
@@ -210,6 +211,22 @@ ul#workshops {
 }
 
 
+html.no-js #rechercher form .form_button input[type="checkbox"] {
+    visibility: visible;
+    display: block;
+    margin: 0 0 10px;
+    appearance: checkbox;
+
+    &:after {
+        content:  " (" attr(value) ")";
+        font-size: 10px;
+        padding-left: 20px;
+        display: block;
+    }
+
+
+}
+
 @media (min-width: 768px){
 
     ul#workshops {
@@ -221,6 +238,7 @@ ul#workshops {
         .workship_meta {
             text-align: right;
             padding-left:10px;
+            min-width: 330px;
         }
     }
 }

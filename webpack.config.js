@@ -9,7 +9,10 @@ module.exports = {
        new webpack.ProvidePlugin({
            $: "jquery",
            jQuery: "jquery",
-           "window.jQuery": "jquery"
+           "window.jQuery": "jquery",
+           "underscore" : 'underscore',
+           "window.underscore" : 'underscore',
+             "_": "underscore"
        })
    ],
   entry: {
