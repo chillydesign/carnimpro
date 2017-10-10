@@ -1,0 +1,17 @@
+#large_logo_page {
+    position: fixed;
+    top:100px;
+    right: 100px;
+    width:100%;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+
+
+@media (min-width: 768px){
+    #large_logo_page {
+        width:50%;
+    }
+
+}

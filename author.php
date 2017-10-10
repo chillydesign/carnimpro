@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-	
+
 		<!-- section -->
-		<section>
+		<section class="container">
 
 		<?php if (have_posts()): the_post(); ?>
 
@@ -70,8 +70,6 @@
 
 		</section>
 		<!-- /section -->
-	
 
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

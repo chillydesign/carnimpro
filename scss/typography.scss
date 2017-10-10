@@ -6,23 +6,25 @@ h1 {
     padding: 0px 0 30px;
     font-weight: normal;
     line-height: 130%;
-        color: black;
+    color: black;
 }
 h2 {
     font-size: 2.9em;
     padding: 0 0 20px;
-        color: black;
+    color: black;
 
 }
 h3 {
     font-size: 2.21em;
     padding:0 0 20px;
     color: black;
+    line-height: 120%;
 }
 
 h4 {
     font-size: 1.69em;
     padding:0 0 10px;
+    color: black;
 
 
 }
@@ -33,7 +35,7 @@ h4 {
     h1 {font-size: 4em;}
     h2 {font-size: 2.6em}
     h3 {font-size: 2.41em}
-    h4 {font-size: 1.79em}
+    h4 {font-size: 2.1em}
 
 }
 
@@ -45,7 +47,7 @@ p {
     letter-spacing: 0.3px;
     padding:0 0 30px;
     line-height: 160%;
-    color: lighten($font_color, 10);
+    color: lighten($font_color, 15);
 }
 li {
     font-size: $font_size;
@@ -85,13 +87,44 @@ a {
 strong, b {font-weight: bold;}
 em, i {font-style: italic}
 
+
+.table_container {
+    width: 100%;
+    overflow: scroll;
+}
 table {
     width: 100%;
+    min-width: 800px;
     margin:0 0 40px;
 }
 
-th, td {font-size: 1.5em;padding:10px;border:0}
-section td {font-size: 2em;line-height: 160%;padding:0 0 10px;}
+
+
+th, td {
+    font-size: #{$font_size * 0.9};
+    padding:10px;
+    border:0;
+    text-align: left;
+    color: lighten($font_color, 15);
+}
+
+th {
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid #ddd;
+    font-size: $font_size;
+}
+
+tr:nth-child(2n) {
+    td {
+        background-color: transparentize(#ddd, 0.8);
+    }
+
+}
+
+
+
+
 
 blockquote {
     padding:20px 0 20px 40px;

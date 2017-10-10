@@ -1,67 +1,93 @@
 <?php get_header(); ?>
 
-	
-	<!-- section -->
-	<section>
 
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
-			<?php endif; ?>
-			<!-- /post thumbnail -->
+    <!-- article -->
+    <article id="post-<?php the_ID(); ?>" class="container">
+        <?php
+        $workshop_id = get_field('workshop_id');
+        $others = new WP_Query( array(
+            'post_type'  => 'workshop',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+            'orderby'   => 'meta_value_num',
+        	'meta_key'  => 'day',
+            'order' => 'asc',
+            'meta_query' => array(
+                array(
+                    'key'     => 'workshop_id',
+                    'value'   => $workshop_id,
+                    'compare' => '=',
+                )
+            )
 
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
+        ));
 
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'webfactor' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'webfactor' ), __( '1 Comment', 'webfactor' ), __( '% Comments', 'webfactor' )); ?></span>
-			<!-- /post details -->
+        ?>
 
-			<?php the_content(); // Dynamic Content ?>
 
-			<?php the_tags( __( 'Tags: ', 'webfactor' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+        <h1><?php the_title(); ?></h1>
+        <?php the_content(); // Dynamic Content ?>
 
-			<p><?php _e( 'Categorised in: ', 'webfactor' ); the_category(', '); // Separated by commas ?></p>
 
-			<p><?php _e( 'This post was written by ', 'webfactor' ); the_author(); ?></p>
+        <div class="table_container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jour</th>
+                        <th>Heures</th>
+                        <th>Centre</th>
+                        <th>Age Range</th>
+                        <th>Levels</th>
+                        <th>Teachers</th>
 
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
+                    </tr>
+                </thead>
+                <tbody>
 
-			<?php comments_template(); ?>
+                    <?php if ($others->have_posts()): while ($others->have_posts()) : $others->the_post(); ?>
+                        <?php  $other_id = get_the_ID(); ?>
 
-		</article>
-		<!-- /article -->
+                        <tr>
+                            <td><?php echo get_field('jour' ); ?></td>
+                            <td><?php echo get_field('heures' ); ?></td>
+                            <td><?php echo get_field('centre' ); ?></td>
+                            <td><?php echo get_field('age_range' ); ?></td>
+                            <td><?php echo get_field('levels' ); ?></td>
+                            <td><?php echo  nl2br( get_field('teachers' )); ?></td>
 
-	<?php endwhile; ?>
+                        </tr>
 
-	<?php else: ?>
+                        <?php wp_reset_postdata(); endwhile; endif; ?>
+                    </tbody>
+                </table>
+            </div>
 
-		<!-- article -->
-		<article>
+            <img id="large_logo_page"  src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="">
 
-			<h1><?php _e( 'Sorry, nothing to display.', 'webfactor' ); ?></h1>
 
-		</article>
-		<!-- /article -->
+        </article>
+        <!-- /article -->
 
-	<?php endif; ?>
+    <?php endwhile; ?>
 
-	</section>
-	<!-- /section -->
-	
+<?php else: ?>
 
-<?php get_sidebar(); ?>
+    <!-- article -->
+    <article class="container">
+
+        <h1><?php _e( 'Sorry, nothing to display.', 'webfactor' ); ?></h1>
+
+    </article>
+    <!-- /article -->
+
+<?php endif; ?>
+
+
+
+
+
 
 <?php get_footer(); ?>

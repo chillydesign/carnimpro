@@ -1,11 +1,8 @@
 <?php get_header(); ?>
 
 
-		<!-- section -->
-		<section>
-
 			<!-- article -->
-			<article id="post-404">
+			<article id="post-404" 		class="container">
 
 				<h1><?php _e( 'Page not found', 'webfactor' ); ?></h1>
 				<p>
@@ -15,8 +12,6 @@
 			</article>
 			<!-- /article -->
 
-		</section>
-		<!-- /section -->
 
 
 <?php get_sidebar(); ?>
