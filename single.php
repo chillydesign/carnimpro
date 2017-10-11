@@ -37,11 +37,11 @@
                 <thead>
                     <tr>
                         <th>Jour</th>
-                        <th>Heures</th>
+                        <th>Horaire</th>
                         <th>Centre</th>
-                        <th>Age Range</th>
-                        <th>Levels</th>
-                        <th>Teachers</th>
+                        <th>Tranche d’âge</th>
+                        <th>Niveau</th>
+                        <th>Professeur(s)</th>
 
                     </tr>
                 </thead>

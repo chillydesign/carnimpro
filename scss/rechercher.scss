@@ -27,7 +27,8 @@
         }
 
         input {
-            min-width: 350px
+            min-width: 300px;
+            max-width: 100%;
         }
 
         .form_button {
@@ -136,7 +137,7 @@
 
 ul#workshops {
 
-    margin:0px 0 100px;
+    margin:0px 0 100px; 
 
 
 
@@ -149,6 +150,11 @@ ul#workshops {
         font-size: 1em;
     }
 
+
+    h3 a {
+        color: inherit;
+        border:0;
+    }
 
 
 
