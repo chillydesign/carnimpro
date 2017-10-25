@@ -10,33 +10,35 @@ add_action( 'admin_post_inscription_form',  'get_email_from_inscription_form' );
 function get_email_from_inscription_form () {
 
     // IF DATA HAS BEEN POSTED
-    if ( isset($_POST['action'])  && $_POST['action'] == 'inscription_form'   ) :
-
-        // TO DO CHECK IF ALL NECESSARY FIELDS HAVE BEEN FILLED IN
-
-        // $referer = $_SERVER['HTTP_REFERER'];
-        // $referer =  explode('?',   $referer)[0];
+    if ( isset($_POST['action'])  && $_POST['action'] == 'inscription_form'  && $_POST['workshop_id']  ) :
 
 
-        // print_r($_SERVER);
-        // print_r($referer);
-        // print_r($_POST);
-
-
-        $workshop_id = $_POST['workshop_id'];
-        $workshop_title = $_POST['workshop_title'];
+        // STUDENT DETAILS
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $address = $_POST['address'];
         $postal = $_POST['postal'];
         $commune = $_POST['commune'];
         $tel = $_POST['tel'];
-        $email = $_POST['email'];
+        $email = trim($_POST['email']);
+        $email_confirm = trim($_POST['email_confirm']);
         $professeur = $_POST['professeur'];
-
         $full_name = $prenom . ' ' . $nom;
 
-        if ( $prenom != '' && $nom != '' && $workshop_title != ''  ) {
+        $workshop_id = $_POST['workshop_id'];
+
+
+        if ( $prenom != '' && $nom != ''  && ( $email == $email_confirm  )   ) {
+
+            // WORKSHOP DETAILS
+            $workshop_title = $_POST['workshop_title'];
+            $workshop = get_post($workshop_id);
+            $jour =  get_field('jour', $workshop_id );
+            $heures =  get_field('heures', $workshop_id );
+            $centre =  get_field('centre', $workshop_id );
+            $age_range =  get_field('age_range', $workshop_id );
+            $levels =  get_field('levels', $workshop_id );
+            $teachers_of_workshop =   nl2br( get_field('teachers', $workshop_id ));
 
 
 
@@ -72,33 +74,46 @@ function get_email_from_inscription_form () {
                 add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
 
 
-                $email_content = '<h1>Confirmation of inscription to ' . $workshop_title  .'</h1>';
-                $email_content .= '<p>Thankyou for signing up. Something snething blah di blah. Thankyou for signing up. Something snething blah di blah. Thankyou for signing up. Something snething blah di blah. Thankyou for signing up. Something snething blah di blah. </p>';
-                $email_content .= '<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;margin: 10px 0 30px">
-                <tr><td>Nom</td><td>'. $nom .'</td></tr>
-                <tr><td>Prenom</td><td>'. $prenom .'</td></tr>
-                <tr><td>Address</td><td>'. $address .'</td></tr>
-                <tr><td>Postal</td><td>'. $postal .'</td></tr>
-                <tr><td>Commune</td><td>'. $commune .'</td></tr>
-                <tr><td>Tel</td><td>'. $tel .'</td></tr>
-                <tr><td>Email</td><td>'. $email .'</td></tr>
-                <tr><td>Workshop title</td><td>'. $workshop_title .'</td></tr>
-                <tr><td>Professeur</td><td>'. $professeur .'</td></tr>
-                </table>';
-                $email_content .= '<p>Thank you <br/> Carnimpro people</p>'
 
 
+                $email_content = '<h3>Résumé de l\'inscription</h3><table cellspacing="0" cellpadding="0" border="0" align="left" width="100%" style="max-width: 600px;"><tbody>
+                <tr><td style="width:25%">Atelier</td><td>'. $workshop_title .'</td></tr>
+                <tr><td style="width:25%">Jour</td><td>'. $jour .'</td></tr>
+                <tr><td style="width:25%">Horaire</td><td>'. $heures .'</td></tr>
+                <tr><td style="width:25%">Lieu</td><td>'. $centre .'</td></tr>
+                <tr><td style="width:25%">Tranche d’âge</td><td>'. $age_range .'</td></tr>
+                <tr><td style="width:25%">Niveau</td><td>'. $levels .'</td></tr>
+                <tr><td style="width:25%">Professeur(s)</td><td>'. $teachers_of_workshop .'</td></tr>
+                </tbody></table>';
+                $email_content .= '<p>&nbsp;</p>';
+                $email_content .= '<h3>Rappel des données</h3><table cellspacing="0" cellpadding="0" border="0" align="left" width="100%" style="max-width: 600px;"><tbody>
+                <tr><td style="width:25%">Nom</td><td>'. $nom .'</td></tr>
+                <tr><td style="width:25%">Prénom</td><td>'. $prenom .'</td></tr>
+                <tr><td style="width:25%">Adresse</td><td>'. $address .'</td></tr>
+                <tr><td style="width:25%">Code postal</td><td>'. $postal .'</td></tr>
+                <tr><td style="width:25%">Commune</td><td>'. $commune .'</td></tr>
+                <tr><td style="width:25%">Téléphone</td><td>'. $tel .'</td></tr>
+                <tr><td style="width:25%">Email</td><td>'. $email .'</td></tr>
+                <tr><td style="width:25%">Professeur</td><td>'. $professeur .'</td></tr>
+                </tbody></table>';
+                $email_content .= '<p>&nbsp;</p>';
+                $email_content .= '<p >A bientôt pour votre atelier<br/>L\'équipe CPMDT</p>';
 
 
+                // EMAIL TO STUDENT
+                $subject_for_student = 'Confirmation d\'inscription aux Carnimpro';
+                $email_start_for_student = '<h1 style="line-height:36px;font-size:26px;">Confirmation d\'inscription Carnimpro </h1>';
+                $email_start_for_student .= '<p>Merci pour votre inscription à l\'atelier ' . $workshop_title . ' </p><p>&nbsp;</p>';
+                $body_for_student = $email_header . $email_start_for_student . $email_content  . $email_footer;
+                wp_mail( $email, $subject_for_student, $body_for_student, $headers );
 
                 // EMAIL TO ADMIN
-                $recipient = 'harvey.charles@gmail.com';
-                $subject = 'Confirmation d\'inscription aux Carnimpro';
-                $body = $email_header;
-                $body .= $email_content;
-                $body .= $email_footer;
+                $email_start_for_admin =  '<h1 style="line-height:36px;font-size:26px;">Nouvelle inscription à l’atelier <br>' .$workshop_title .  '</h1>';
+                $admin_email = 'harvey.charles@gmail.com';
+                $subject_for_admin = 'Nouvelle inscription';
+                $body_for_admin = $email_header . $email_start_for_admin . $email_content  . $email_footer;
 
-                wp_mail( $recipient, $subject, $body, $headers );
+                wp_mail( $admin_email, $subject_for_admin, $body_for_admin, $headers );
 
 
 

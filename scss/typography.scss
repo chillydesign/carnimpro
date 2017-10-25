@@ -2,7 +2,7 @@
 /*TYPOGRAPHY*/
 
 h1 {
-    font-size: 3.9em;
+    font-size: 3em;
     padding: 0px 0 30px;
     font-weight: normal;
     line-height: 130%;
@@ -156,7 +156,7 @@ label {
 input, .form_button, button, textarea, select, .button {
     background: white;
     appearance:none;
-    border:1px solid $light_grey;
+    border:1px solid $medium_grey;
     padding: 20px 40px;
     color: $medium_grey;
     font-size: #{$font_size };
@@ -194,6 +194,7 @@ button,   .button {
     color: white;
     cursor: pointer;
     transition: all 0.3s;
+    border-color: transparent;
     &:hover {
         background-color: darken($blue, 15);
     }

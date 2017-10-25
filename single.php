@@ -59,32 +59,6 @@
 
 
 
-            radio button for ecole
-            CPMDT or other
-
-            if other
-                input for name of ecole
-                politesse
-                nom
-                prenom
-                address
-                postal
-                commune
-                tel
-                email
-                confirm email
-            if cpmdt
-                student number input (maybe check to see if its a valid student number)
-                email address
-                confirm email
-                teacher - select for custom post type of professeur
-
-                when sending email, get all the student details from the custom post type of eleve, based on the student number
-
-
-            sends one email to admin, one to teacher and one to student
-
-
 
 
         </article>

@@ -1,0 +1,7 @@
+.ftpconfig
+.ftpignore
+id_rsa
+.DS_Store
+.git
+node_modules
+node_modules/

@@ -10,6 +10,11 @@
             min-width: 300px;
             max-width: 100%;
             width: auto;
+
+        }
+
+        input, .form_button, button, textarea, select, .button  {
+            border: 0;
         }
     }
 

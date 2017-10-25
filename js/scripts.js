@@ -28,6 +28,32 @@
         })
 
 
+        // inscription form
+        var $inscription_form = $('#inscription_form');
+        var $inscription_button = $('#inscription_button');
+        var $email = $('#email');
+        var $email_confirm = $('#email_confirm');
+        var $prenom = $('#prenom');
+        var $nom = $('#nom');
+        $inscription_button.hide();
+
+        $('input', $inscription_form).on('keyup', function(){
+
+            if (
+                $email.val() == $email_confirm.val()  &&
+                $email.val() != '' &&
+                $prenom.val() != '' &&
+                $nom.val() != ''
+            ) {
+                $inscription_button.show();
+            } else {
+                $inscription_button.hide();
+            }
+
+        });
+
+
+
 
 
 

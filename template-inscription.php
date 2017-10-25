@@ -32,43 +32,32 @@ endif;
         <?php if ($workshop_id) : // if have a workshop id ?>
 
 
-            <h1>Inscription for <a href="<?php echo $workshop->guid; ?>"><?php echo $workshop_title; ?></a></h1>
+            <h1>Inscription - <a href="<?php echo $workshop->guid; ?>"><?php echo $workshop_title; ?></a></h1>
 
             <div class="row">
 
-                <div class="col-sm-3">
 
-                    <ul class="box">
-                        <li><h4>Jour</h4> <?php echo $jour; ?></li>
-                        <li><h4>Horaire</h4> <?php echo $heures; ?></li>
-                        <li><h4>Centre</h4> <?php echo $centre; ?></li>
-                        <li><h4>Tranche  d’âge</h4> <?php echo $age_range; ?></li>
-                        <li><h4>Niveau</h4> <?php echo $levels; ?></li>
-                        <li><h4>Professeur(s)</h4> <?php echo $teachers_of_workshop; ?></li>
-                    </ul>
 
-                </div>
-
-                <div class="col-sm-9">
+                <div class="col-sm-6 col-sm-push-6 col-md-9 col-md-push-3">
 
                     <?php if ( isset($_GET['problem']) ): ?>
-                        <p class="alert">There was a problem submitting your application. Please try again. </p>
+                        <p class="alert">Une erreur s’est produite lors de votre inscription. Vérifiez que tous les champs obligatoires soient bien remplis et veuillez réessayer. </p>
                     <?php endif; ?>
 
                     <form id="inscription_form" action="<?php echo  esc_url( admin_url('admin-post.php') ); ?>" method="post">
 
 
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
                                 <div class="form_input">
-                                    <label for="prenom" >Prenom</label>
+                                    <label for="prenom" >Prénom *</label>
                                     <input type="text" name="prenom" id="prenom" />
                                 </div>
 
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
                                 <div class="form_input">
-                                    <label for="nom" >Nom</label>
+                                    <label for="nom" >Nom *</label>
                                     <input type="text" name="nom" id="nom" />
                                 </div>
 
@@ -77,40 +66,40 @@ endif;
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
 
 
                                 <div class="form_input">
-                                    <label for="tel">tel</label>
+                                    <label for="tel">Téléphone</label>
                                     <input type="text" name="tel" id="tel" />
                                 </div>
 
                                 <div class="form_input">
-                                    <label for="address">address</label>
-                                    <textarea  name="address" id="address"></textarea>
+                                    <label for="address">Adresse</label>
+                                    <input type="text" name="address" id="address" />
                                 </div>
                                 <div class="form_input">
-                                    <label for="postal">postal</label>
+                                    <label for="postal">Code postal</label>
                                     <input type="text" name="postal" id="postal" />
                                 </div>
                                 <div class="form_input">
-                                    <label for="commune">commune</label>
+                                    <label for="commune">Commune</label>
                                     <input type="text" name="commune" id="commune" />
                                 </div>
 
 
 
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
 
 
 
                                 <div class="form_input">
-                                    <label for="email">email</label>
+                                    <label for="email">Email *</label>
                                     <input type="text" name="email" id="email" />
                                 </div>
                                 <div class="form_input">
-                                    <label for="email_confirm">confirm email</label>
+                                    <label for="email_confirm">Confirmez l'email *</label>
                                     <input type="text" name="email_confirm" id="email_confirm" />
                                 </div>
 
@@ -131,7 +120,8 @@ endif;
                                     <input type="hidden" name="action" value="inscription_form">
                                     <input type="hidden" name="workshop_id" value="<?php echo $workshop_id; ?>">
                                     <input type="hidden" name="workshop_title" value="<?php echo $workshop_title; ?>">
-                                    <button name="submit_inscription_form" type="submit">Envoyer</button>
+                                    <label>&nbsp;</label>
+                                    <button id="inscription_button" name="submit_inscription_form" type="submit">Envoyer</button>
                                 </div>
 
 
@@ -150,7 +140,18 @@ endif;
 
                 </div>
 
+                <div class="col-md-3 col-md-pull-9 col-sm-pull-6 col-sm-6">
 
+                    <ul class="box">
+                        <li><h4>Jour</h4> <?php echo $jour; ?></li>
+                        <li><h4>Horaire</h4> <?php echo $heures; ?></li>
+                        <li><h4>Centre</h4> <?php echo $centre; ?></li>
+                        <li><h4>Tranche  d’âge</h4> <?php echo $age_range; ?></li>
+                        <li><h4>Niveau</h4> <?php echo $levels; ?></li>
+                        <li><h4>Professeur(s)</h4> <?php echo $teachers_of_workshop; ?></li>
+                    </ul>
+
+                </div>
             </div>
 
 

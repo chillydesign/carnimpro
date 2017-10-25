@@ -8,7 +8,7 @@
 
 	<!-- Web Font / @font-face : BEGIN -->
 	<!-- NOTE: If web fonts are not required, lines 9 - 26 can be safely removed. -->
-	
+
 	<!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
 	<!--[if mso]>
 		<style>
@@ -17,14 +17,14 @@
 			}
 		</style>
 	<![endif]-->
-	
+
 	<!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
 	<!--[if !mso]><!-->
 		<!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
 	<!--<![endif]-->
 
 	<!-- Web Font / @font-face : END -->
-	
+
   	<!-- CSS Reset -->
     <style>
 
@@ -37,25 +37,25 @@
             height: 100% !important;
             width: 100% !important;
         }
-        
+
         /* What it does: Stops email clients resizing small text. */
         * {
             -ms-text-size-adjust: 100%;
             -webkit-text-size-adjust: 100%;
         }
-        
+
         /* What is does: Centers email on Android 4.4 */
         div[style*="margin: 16px 0"] {
             margin:0 !important;
         }
-        
+
         /* What it does: Stops Outlook from adding extra spacing to tables. */
         table,
         td {
             mso-table-lspace: 0pt !important;
             mso-table-rspace: 0pt !important;
         }
-                
+
         /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
         table {
             border-spacing: 0 !important;
@@ -64,26 +64,30 @@
             margin: 0 auto !important;
         }
         table table table {
-            table-layout: auto; 
+            table-layout: auto;
         }
-        
+        table table table td {
+            border-bottom:1px solid #eee;
+            padding:8px;
+        }
+
         /* What it does: Uses a better rendering method when resizing images in IE. */
         img {
             -ms-interpolation-mode:bicubic;
         }
-        
+
         /* What it does: A work-around for iOS meddling in triggered links. */
         .mobile-link--footer a,
         a[x-apple-data-detectors] {
             color:inherit !important;
             text-decoration: underline !important;
         }
-      
+
     </style>
-    
+
     <!-- Progressive Enhancements -->
     <style>
-        
+
         /* What it does: Hover styles for buttons */
         .button-td,
         .button-a {
@@ -110,7 +114,7 @@
         </div> -->
         <!-- Visually Hidden Preheader Text : END -->
 
-        <!--    
+        <!--
             Set the email width. Defined in two places:
             1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 600px.
             2. MSO tags for Desktop Windows Outlook enforce a 600px width.
@@ -144,12 +148,12 @@
 
             <!-- Email Body : BEGIN -->
             <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;" role="presentation">
-                
+
                 <!-- Hero Image, Flush : BEGIN -->
                 <tr>
 					<td bgcolor="#ffffff" align="center">
 
-                        <a href="http://courscomplementaires.ch" target="_blank"><img src="http://courscomplementaires.ch/wp-content/uploads/2017/02/courscomplementaires-header.jpg" width="100%" height=""  border="0" align="left" style="width: 100%; max-width:600px; margin-bottom: 15px;">
+                        <a href="https://webfactor.ch/projets/carnimpro/" target="_blank"><img src="https://webfactor.ch/projets/carnimpro/wp-content/themes/carnimpro/img/email_logo.jpg" width="100%" height=""  border="0" align="left" style="width: 100%; max-width:600px; margin-bottom: 0px;">
 						</a>
 					</td>
                 </tr>
@@ -158,4 +162,4 @@
                 <td bgcolor="#ffffff">
                     <table cellspacing="0" cellpadding="0" border="0" width="100%">
                       <tr>
-                            <td style="padding: 40px; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+                            <td style="padding:0 40px 40px; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
