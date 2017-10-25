@@ -21,10 +21,16 @@
 
         // HEADER SLIDE NAVIGATION
         $('nav a').on('click', function(e){
-            e.preventDefault();
-            var $id = $(this).attr('href');
-            var $page_location = $($id);
-            $("html, body").animate({ scrollTop: $page_location.offset().top }, 1000);
+
+            var $href = $(this).attr('href');
+            var $id = $href.split('#')[1];
+            var $location = $('#' + $id);
+            // if there is a element with that id, scroll to it. if not
+            // treat the link like a normal link
+            if ($location.length > 0 ) {
+                e.preventDefault();
+                $("html, body").animate({ scrollTop: $location.offset().top }, 1000);
+            }
         })
 
 
