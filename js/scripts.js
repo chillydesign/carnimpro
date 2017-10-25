@@ -231,7 +231,7 @@ function processWorkshops(workshops, search, ages, levels, days,  locations){
                 big_brother_workshop = false;
             }
 
-            workshop['days'] = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+            workshop['days'] = ['', 'L', 'M', 'M', 'J', 'V', ''];
 
             workshop['days'][workshop.day] = '<span>'+ workshop['days'][workshop.day] +'</span>';
 
