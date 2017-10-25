@@ -432,6 +432,112 @@ function create_custom_post_types()
         //    'category'
         ) // Add Category and Post Tags support
     ));
+
+
+    register_post_type('eleve', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Eleve', 'webfactor'), // Rename these to suit
+            'singular_name' => __('Eleve', 'webfactor'),
+            'add_new' => __('Add New', 'webfactor'),
+            'add_new_item' => __('Add New Eleve', 'webfactor'),
+            'edit' => __('Edit', 'webfactor'),
+            'edit_item' => __('Edit Eleve', 'webfactor'),
+            'new_item' => __('New Eleve', 'webfactor'),
+            'view' => __('View Eleve', 'webfactor'),
+            'view_item' => __('View Eleve', 'webfactor'),
+            'search_items' => __('Search Eleve', 'webfactor'),
+            'not_found' => __('No Eleves found', 'webfactor'),
+            'not_found_in_trash' => __('No Eleves found in Trash', 'webfactor')
+        ),
+        'public' => true,
+        'publicly_queryable'  => false,
+        'exclude_from_search' => true,
+        'show_in_menu' => true,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => false,
+        'supports' => array(
+            'title',
+            'excerpt',
+            'thumbnail'
+        ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+        //    'post_tag',
+        //    'category'
+        ) // Add Category and Post Tags support
+    ));
+
+
+    register_post_type('inscription', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Inscription', 'webfactor'), // Rename these to suit
+            'singular_name' => __('Inscription', 'webfactor'),
+            'add_new' => __('Add New', 'webfactor'),
+            'add_new_item' => __('Add New Inscription', 'webfactor'),
+            'edit' => __('Edit', 'webfactor'),
+            'edit_item' => __('Edit Inscription', 'webfactor'),
+            'new_item' => __('New Inscription', 'webfactor'),
+            'view' => __('View Inscription', 'webfactor'),
+            'view_item' => __('View Inscription', 'webfactor'),
+            'search_items' => __('Search Inscription', 'webfactor'),
+            'not_found' => __('No Inscriptions found', 'webfactor'),
+            'not_found_in_trash' => __('No Inscriptions found in Trash', 'webfactor')
+        ),
+        'public' => true,
+        'publicly_queryable'  => false,
+        'exclude_from_search' => true,
+        'show_in_menu' => true,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => false,
+        'supports' => array(
+            'title',
+            'excerpt',
+            'thumbnail'
+        ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+        //    'post_tag',
+        //    'category'
+        ) // Add Category and Post Tags support
+    ));
+
+    register_post_type('professeur', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Professeur', 'webfactor'), // Rename these to suit
+            'singular_name' => __('Professeur', 'webfactor'),
+            'add_new' => __('Add New', 'webfactor'),
+            'add_new_item' => __('Add New Professeur', 'webfactor'),
+            'edit' => __('Edit', 'webfactor'),
+            'edit_item' => __('Edit Professeur', 'webfactor'),
+            'new_item' => __('New Professeur', 'webfactor'),
+            'view' => __('View Professeur', 'webfactor'),
+            'view_item' => __('View Professeur', 'webfactor'),
+            'search_items' => __('Search Professeur', 'webfactor'),
+            'not_found' => __('No Professeurs found', 'webfactor'),
+            'not_found_in_trash' => __('No Professeurs found in Trash', 'webfactor')
+        ),
+        'public' => true,
+        'publicly_queryable'  => false,
+        'exclude_from_search' => true,
+        'show_in_menu' => true,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => false,
+        'supports' => array(
+            'title',
+            'excerpt',
+            'thumbnail'
+        ), // Go to Dashboard Custom HTML5 Blank post for supports
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+        //    'post_tag',
+        //    'category'
+        ) // Add Category and Post Tags support
+    ));
+
+
 }
 
 /*------------------------------------*\
@@ -565,6 +671,43 @@ function thumbnail_of_post_url( $post_id,  $size='large'  ) {
 
 
 
+
+
+function get_workshops_by_workshop_id($workshop_id){
+
+    $workshops = new WP_Query(array(
+        'post_type'  => 'workshop',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'orderby'   => 'meta_value_num',
+        'meta_key'  => 'day',
+        'order' => 'asc',
+        'meta_query' => array(
+            array(
+                'key'     => 'workshop_id',
+                'value'   => $workshop_id,
+                'compare' => '=',
+            )
+        )
+    ));
+    return $workshops;
+
+}
+
+
+function get_professeurs() {
+    $professeurs = get_posts(array(
+        'post_type'  => 'professeur',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'meta_key'  => 'nom', // order by their surname
+        'order' => 'asc'
+    ));
+    return $professeurs;
+}
+
+
+include('functions_form.php');
 
 
 

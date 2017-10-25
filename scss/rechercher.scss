@@ -6,127 +6,22 @@
         padding-top: 50px;
         padding-bottom: 35px;
 
-
-        input, .form_button, button {
-            background: white;
-            appearance:none;
-            border:0;
-            padding: 20px 40px;
-            color: $medium_grey;
-            font-size: #{$font_size };
-            font-family: $font_stack;
-            text-transform: lowercase;
-            border-radius: 25px;
-            display: inline-block;
-            margin: 0 15px 15px 0;
-            transition: all 0.3s;
-        }
-
-        ::placeholder {
-            color: $medium_grey;
-        }
-
         input {
             min-width: 300px;
             max-width: 100%;
+            width: auto;
         }
+    }
 
-        .form_button {
-            position: relative;
-                cursor: pointer;
-
-            .nicer_select {
-                display: none;
-                position: absolute;
-                top:100%;
-                left: 0;
-                width: 250px;
-                z-index: 100;
-
-
-            &:after {
-                content:'';
-                border: 6px solid transparent;
-                border-top:6px solid darken($yellow, 7);
-                border-left: 6px solid darken($yellow, 7);
-                width: 0px;
-                height:0px;
-                position: absolute;
-                top:-6px;
-                left: 30px;
-                transform: rotate(45deg);
-            }
-
-
-
-                .nicer_option {
-                    padding:10px 10px;
-                    display: block;
-                    background: darken($yellow, 7);
-                    color: white;
-                    cursor: pointer;
-                    border-bottom: 1px solid $yellow;
-
-                    &:hover {
-                        background-color: darken($yellow, 15);
-                    }
-
-                    &:first-child {
-                            border-radius: 15px 15px 0 0;
-                    }
-                    &:last-child {
-                            border-radius: 0 0 15px 15px ;
-                    }
-
-                    &.checked {
-                        background-color: darken($yellow, 20);
-                    }
-                }
-
-                &.visible {
-                    display: inline-block;
-                }
-            }
-
-            &:hover {
-                background-color: $yellow;
-                color: white;
-
-            }
-
-            input {
-                // width: auto;
-                // appearance: checkbox;
-                display: none;
-                visibility: hidden;
-            }
-
-        }
-
-        button {
-            background-color: $blue;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            &:hover {
-                background-color: darken($blue, 15);
-            }
-        }
-
-
-
-
-
-        .background_color {
-            background-color: $dark_grey;
-            opacity: 0.1;
-            position: absolute;
-            top:0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+    .background_color {
+        background-color: $dark_grey;
+        opacity: 0.1;
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
     }
 
 
@@ -135,9 +30,13 @@
 
 
 
+
+
+
+
 ul#workshops {
 
-    margin:0px 0 100px; 
+    margin:0px 0 100px;
 
 
 

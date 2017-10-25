@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-	
+
 		<!-- section -->
-		<section>
+		<section class="container">
 
 			<h1><?php echo sprintf( __( '%s Search Results for ', 'webfactor' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
 
@@ -12,8 +12,8 @@
 
 		</section>
 		<!-- /section -->
-	
 
-<?php get_sidebar(); ?>
+
+
 
 <?php get_footer(); ?>

@@ -135,3 +135,98 @@ blockquote {
     max-width: 700px;
 }
 blockquote p:last-child {padding-bottom: 0}
+
+
+
+
+form {
+
+}
+
+label {
+    font-size: $font_size;
+    font-weight: bold;
+    display:block;
+    padding:0px 0 5px $border_radius;
+    color: $font_color;
+}
+
+
+
+input, .form_button, button, textarea, select, .button {
+    background: white;
+    appearance:none;
+    border:1px solid $light_grey;
+    padding: 20px 40px;
+    color: $medium_grey;
+    font-size: #{$font_size };
+    font-family: $font_stack;
+    border-radius: $border_radius;
+    display: inline-block;
+    margin: 0 15px 15px 0;
+    transition: all 0.3s;
+
+}
+
+textarea {
+    min-height: 120px;
+}
+
+
+select {
+    cursor: pointer;
+}
+
+input[type="radio"] {
+
+}
+
+
+::placeholder {
+    color: $medium_grey;
+}
+
+
+
+
+button,   .button {
+    background-color: $blue;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+        background-color: darken($blue, 15);
+    }
+    &:link, &:visited, &:active {
+        color: white;
+    }
+}
+// END OF FORM
+
+
+
+
+
+
+
+.pagination {
+    margin:10px 0;
+    padding: 0;
+    font-size: $font_size;
+    .page-numbers {
+        display: inline-block;
+        padding: 10px;
+        border: 1px solid $light_grey;
+
+        &.current {
+            background: $light_grey;
+            color: $medium_grey;
+        }
+    }
+
+    a {
+        display: inline-block;
+        color: inherit;
+    }
+
+}

@@ -8,23 +8,7 @@
     <article id="post-<?php the_ID(); ?>" class="container">
         <?php
         $workshop_id = get_field('workshop_id');
-        $others = new WP_Query( array(
-            'post_type'  => 'workshop',
-            'posts_per_page' => -1,
-            'post_status' => 'publish',
-            'orderby'   => 'meta_value_num',
-        	'meta_key'  => 'day',
-            'order' => 'asc',
-            'meta_query' => array(
-                array(
-                    'key'     => 'workshop_id',
-                    'value'   => $workshop_id,
-                    'compare' => '=',
-                )
-            )
-
-        ));
-
+        $others = get_workshops_by_workshop_id($workshop_id);
         ?>
 
 
@@ -42,6 +26,7 @@
                         <th>Tranche d’âge</th>
                         <th>Niveau</th>
                         <th>Professeur(s)</th>
+                        <th>Inscription</th>
 
                     </tr>
                 </thead>
@@ -57,6 +42,9 @@
                             <td><?php echo get_field('age_range' ); ?></td>
                             <td><?php echo get_field('levels' ); ?></td>
                             <td><?php echo  nl2br( get_field('teachers' )); ?></td>
+                            <td>
+                                <a href="<?php echo get_home_url(); ?>/inscription?id=<?php echo $other_id; ?>" class="button">Inscription</a>
+                            </td>
 
                         </tr>
 
@@ -66,6 +54,37 @@
             </div>
 
             <img id="large_logo_page"  src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="">
+
+
+
+
+
+            radio button for ecole
+            CPMDT or other
+
+            if other
+                input for name of ecole
+                politesse
+                nom
+                prenom
+                address
+                postal
+                commune
+                tel
+                email
+                confirm email
+            if cpmdt
+                student number input (maybe check to see if its a valid student number)
+                email address
+                confirm email
+                teacher - select for custom post type of professeur
+
+                when sending email, get all the student details from the custom post type of eleve, based on the student number
+
+
+            sends one email to admin, one to teacher and one to student
+
+
 
 
         </article>

@@ -1,0 +1,93 @@
+
+.form_input {
+
+    padding:0 0 30px;
+
+    input, textarea, select {
+        width: 100%;
+        max-width: 350px;
+    }
+
+
+}
+
+.form_button {
+    position: relative;
+        cursor: pointer;
+
+    .nicer_select {
+        display: none;
+        position: absolute;
+        top:100%;
+        left: 0;
+        width: 250px;
+        z-index: 100;
+
+
+    &:after {
+        content:'';
+        border: 6px solid transparent;
+        border-top:6px solid darken($yellow, 7);
+        border-left: 6px solid darken($yellow, 7);
+        width: 0px;
+        height:0px;
+        position: absolute;
+        top:-6px;
+        left: 30px;
+        transform: rotate(45deg);
+    }
+
+
+
+        .nicer_option {
+            padding:10px 10px;
+            display: block;
+            background: darken($yellow, 7);
+            color: white;
+            cursor: pointer;
+            border-bottom: 1px solid $yellow;
+
+            &:hover {
+                background-color: darken($yellow, 15);
+            }
+
+            &:first-child {
+                    border-radius: 15px 15px 0 0;
+            }
+            &:last-child {
+                    border-radius: 0 0 15px 15px ;
+            }
+
+            &.checked {
+                background-color: darken($yellow, 20);
+            }
+        }
+
+        &.visible {
+            display: inline-block;
+        }
+    }
+
+    &:hover {
+        background-color: $yellow;
+        color: white;
+
+    }
+
+    input {
+        // width: auto;
+        // appearance: checkbox;
+        display: none;
+        visibility: hidden;
+    }
+
+}
+
+
+
+#inscription_form {
+
+
+
+
+}
