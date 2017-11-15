@@ -11,7 +11,7 @@
                 <p><%= workshop.post_content %></p>
 
                 <div class="workship_meta">
-                    <a class="dates"><%= workshop.days %></a>
+                    <a  href="<%= workshop.guid %>" class="dates"><%= workshop.days %></a>
                     <a href="<%= workshop.guid %>" class=" read_more"> Voir plus</a>
                 </div>
             </div>

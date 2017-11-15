@@ -164,7 +164,7 @@
 
 
 
-function processWorkshops(workshops, search, ages, levels, days,  locations){
+function processWorkshops(workshops, search, ages, levels, days, disciplines,  locations){
 
 
 
@@ -187,6 +187,7 @@ function processWorkshops(workshops, search, ages, levels, days,  locations){
 
     if (levels && levels.length > 0) {
         var workshops = _.reject(  workshops ,  function(w) {
+        //        return  !_.contains(    levels  ,  w.levels);
             return  ( _.intersection(    levels  ,  w.levels ).length == 0 );
         });
     }
@@ -194,6 +195,15 @@ function processWorkshops(workshops, search, ages, levels, days,  locations){
     if (days && days.length > 0) {
         var workshops = _.reject(  workshops ,  function(w) {
             return  !_.contains(    days  ,  w.day);
+        });
+    }
+
+
+    console.log(disciplines);
+    if (disciplines && disciplines.length > 0) {
+        var workshops = _.reject(  workshops ,  function(w) {
+        //    return  ( _.intersection(    disciplines  ,  w.discipline ).length == 0 );
+            return  !_.contains(    disciplines  ,  w.discipline);
         });
     }
 
@@ -275,6 +285,7 @@ function displayWorkshops(workshops, workshops_container, compiled){
     var $days = new Array();
     var $levels = new Array();
     var $locations = new Array();
+    var $disciplines = new Array();
 
 
     var $search_checks = $('#rechercher input[type="checkbox"]');
@@ -290,6 +301,8 @@ function displayWorkshops(workshops, workshops_container, compiled){
                 $levels.push(   ($this.val())  )
             } else if( $check_type == 'age[]' ){
                 $ages.push(   ($this.val())  )
+            } else if( $check_type == 'discipline[]' ){
+                $disciplines.push(   ($this.val())  )
             }
 
 
@@ -297,11 +310,11 @@ function displayWorkshops(workshops, workshops_container, compiled){
 
     });
 
-    console.log($ages);
 
 
 
-    var s_workshops =  processWorkshops(workshops, $search_val, $ages, $levels, $days, $locations );
+
+    var s_workshops =  processWorkshops(workshops, $search_val, $ages, $levels, $days, $disciplines, $locations );
 
 
     workshops_container.html(  compiled({ workshops:   s_workshops  })  );

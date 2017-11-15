@@ -8,12 +8,13 @@
     <article id="post-<?php the_ID(); ?>" class="container">
         <?php
         $workshop_id = get_field('workshop_id');
+        $discipline = get_field('discipline');
         $others = get_workshops_by_workshop_id($workshop_id);
         ?>
 
 
         <h1><?php the_title(); ?></h1>
-        <?php the_content(); // Dynamic Content ?>
+        <p><?php echo get_the_content();  ?>  (<?php echo $discipline; ?>)</p>
 
 
         <div class="table_container">
