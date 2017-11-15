@@ -19,7 +19,7 @@ $locations = search_form_locations();
 
                     <div class="nicer_select">
                         <?php foreach ($age_tranches as $age) : ?>
-                            <div class="nicer_option" data-value="<?php echo $age; ?>"><?php echo $age; ?></div>
+                            <div class="nicer_option" data-value="<?php echo $age; ?>"><?php echo strtolower( $age);  ?></div>
                         <?php endforeach; ?>
                     </div>
 
@@ -33,7 +33,7 @@ $locations = search_form_locations();
                     <span>niveau</span>
                     <div class="nicer_select">
                         <?php foreach ($levels as $level) : ?>
-                            <div class="nicer_option" data-value="<?php echo $level; ?>"><?php echo $level; ?></div>
+                            <div class="nicer_option" data-value="<?php echo $level; ?>"><?php echo strtolower( $level); ?></div>
                         <?php endforeach; ?>
 
                     </div>
@@ -65,16 +65,14 @@ $locations = search_form_locations();
                         <div class="nicer_option"  data-value="3">mercredi</div>
                         <div class="nicer_option"  data-value="4">jeudi</div>
                         <div class="nicer_option"  data-value="5">vendredi</div>
-                        <div class="nicer_option"  data-value="6">samedi</div>
-                        <div class="nicer_option"  data-value="0">dimanche</div>
+
                     </div>
                     <input type="checkbox" name="jour[]" value="1" />
                     <input type="checkbox" name="jour[]" value="2" />
                     <input type="checkbox" name="jour[]" value="3" />
                     <input type="checkbox" name="jour[]" value="4" />
                     <input type="checkbox" name="jour[]" value="5" />
-                    <input type="checkbox" name="jour[]" value="6" />
-                    <input type="checkbox" name="jour[]" value="0" />
+
 
                 </div>
                 <div class="form_button">
