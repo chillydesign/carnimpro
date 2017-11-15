@@ -170,7 +170,6 @@ function processWorkshops(workshops, search, ages, levels, days, disciplines,  l
 
     if (search && search != '' ){
         var search_array = _.reject( removeDiacritics(search.toLowerCase()  ).split(' ') , function(t) { return t == '' })  ;
-
         var workshops = _.filter(  workshops ,  function(w) {
             return  _.every(search_array, function(t) {
                 return  (w.search_field ).indexOf(t) > -1 ;
@@ -181,13 +180,13 @@ function processWorkshops(workshops, search, ages, levels, days, disciplines,  l
 
     if (ages && ages.length > 0) {
         var workshops = _.reject(  workshops ,  function(w) {
-            return  !_.contains(    ages  ,  w.age_range);
+        //    return  !_.contains(    ages  ,  w.age_range);
+            return  ( _.intersection(    ages  ,  w.ages ).length == 0 );
         });
     }
 
     if (levels && levels.length > 0) {
         var workshops = _.reject(  workshops ,  function(w) {
-        //        return  !_.contains(    levels  ,  w.levels);
             return  ( _.intersection(    levels  ,  w.levels ).length == 0 );
         });
     }
@@ -199,7 +198,7 @@ function processWorkshops(workshops, search, ages, levels, days, disciplines,  l
     }
 
 
-    console.log(disciplines);
+
     if (disciplines && disciplines.length > 0) {
         var workshops = _.reject(  workshops ,  function(w) {
         //    return  ( _.intersection(    disciplines  ,  w.discipline ).length == 0 );

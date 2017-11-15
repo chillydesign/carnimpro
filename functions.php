@@ -716,8 +716,6 @@ $age_tranches = array(
     '12-16 ans et plus',
     '8-11 ans',
     '5-8 ans',
-    '8-11 ans / 12-16 ans',
-    '5-8 ans / 8-11 ans',
     '17 ans et plus',
     'tout âge'
 );
