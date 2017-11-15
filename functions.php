@@ -725,12 +725,12 @@ return $age_tranches;
 
 function search_form_levels(){
     $levels = array(
-        'paliers II-III',
-        'paliers IV-V-VI',
         'Initiation-palier I',
         'paliers I-II-III',
-        'piccolino-initiation',
+        'paliers II-III',
+        'paliers IV-V-VI',
         'Filière intensive',
+        'piccolino-initiation',
         'sans'
     );
     return $levels;
