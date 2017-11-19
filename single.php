@@ -10,6 +10,7 @@
         $workshop_id = get_field('workshop_id');
         $discipline = get_field('discipline');
         $others = get_workshops_by_workshop_id($workshop_id);
+
         ?>
 
 
@@ -34,7 +35,10 @@
                 <tbody>
 
                     <?php if ($others->have_posts()): while ($others->have_posts()) : $others->the_post(); ?>
-                        <?php  $other_id = get_the_ID(); ?>
+                        <?php $other_id = get_the_ID(); ?>
+                        <?php $inscriptions = get_inscriptions_by_workshop_id($other_id); ?>
+                        <?php $inscriptions_count =  sizeof($inscriptions); ?>
+                        <?php $no_allowed_students =  intval(  get_field('no_students') ); ?>
 
                         <tr>
                             <td><?php echo get_field('jour' ); ?></td>
@@ -42,9 +46,14 @@
                             <td><?php echo get_field('centre_display' ); ?></td>
                             <td><?php echo get_field('ages' ); ?></td>
                             <td><?php echo get_field('levels' ); ?></td>
-                            <td><?php echo  nl2br( get_field('teachers' )); ?></td>
+                            <td><?php echo nl2br( get_field('teachers' )); ?></td>
+
                             <td>
+                                <?php if(  $inscriptions_count <  $no_allowed_students ) : ?>
                                 <a href="<?php echo get_home_url(); ?>/inscription?id=<?php echo $other_id; ?>" class="button">Inscription</a>
+                                <?php else:  ?>
+                                    <a href="" class="button button_inactive" >Complet</a>
+                                <?php endif; ?>
                             </td>
 
                         </tr>

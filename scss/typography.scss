@@ -201,6 +201,11 @@ button,   .button {
     &:link, &:visited, &:active {
         color: white;
     }
+
+    &.button_inactive {
+        background-color: #ccc;
+        cursor: default;
+    }
 }
 // END OF FORM
 

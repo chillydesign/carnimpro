@@ -1,3 +1,5 @@
+
+</div><!--  ENDOF ALL BUT FOOTER DIV -->
 <?php $tdu = get_template_directory_uri(); ?>
 <!-- footer -->
 <footer class="footer" role="contentinfo">

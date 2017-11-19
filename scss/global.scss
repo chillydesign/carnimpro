@@ -26,6 +26,12 @@ body {
 @import 'inscription';
 
 
+
+.all_but_footer {
+    min-height: calc(100vh - 160px);
+}
+
+
 .alert {
     background: lighten($red,10);
     color:lighten($red,47);

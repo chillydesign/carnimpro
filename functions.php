@@ -670,6 +670,18 @@ function thumbnail_of_post_url( $post_id,  $size='large'  ) {
 }
 
 
+function get_inscriptions_by_workshop_id($workshop_id) {
+
+    $inscriptions = get_posts(array(
+        'post_type'  => 'inscription',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'post_parent' => $workshop_id
+    ));
+    return $inscriptions;
+
+}
+
 
 
 

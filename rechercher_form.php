@@ -33,7 +33,7 @@ $locations = search_form_locations();
                     <span>niveau</span>
                     <div class="nicer_select">
                         <?php foreach ($levels as $level) : ?>
-                            <div class="nicer_option" data-value="<?php echo $level; ?>"><?php echo strtolower( $level); ?></div>
+                            <div class="nicer_option" data-value="<?php echo $level; ?>"><?php echo ( $level); ?></div>
                         <?php endforeach; ?>
 
                     </div>
