@@ -13,6 +13,9 @@ function get_email_from_inscription_form () {
     if ( isset($_POST['action'])  && $_POST['action'] == 'inscription_form'  && $_POST['workshop_id']  ) :
 
 
+
+
+
         // STUDENT DETAILS
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
@@ -38,8 +41,15 @@ function get_email_from_inscription_form () {
             $centre =  get_field('centre', $workshop_id );
             $age_range =  get_field('age_range', $workshop_id );
             $levels =  get_field('levels', $workshop_id );
+            $no_allowed_students =  get_field('no_students', $workshop_id );
             $teachers_of_workshop =   nl2br( get_field('teachers', $workshop_id ));
 
+
+            $inscriptions = get_inscriptions_by_workshop_id($workshop_id);
+            $inscriptions_count =  sizeof($inscriptions);
+
+            // if there is a free space to allow someone to subcribe
+            if(  $inscriptions_count <  $no_allowed_students ) {
 
 
             $post = array(
@@ -127,6 +137,10 @@ function get_email_from_inscription_form () {
 
             }; // if saved as custom post type OK
 
+
+        } else {  // end of if tehre is a free spot for enrollment
+            wp_redirect(get_home_url() . '/inscription?id=' . $workshop_id . '&problem&no_space' );
+        } // if no free space for enrollment
 
         } else { // if we dont have first name, last name or workshop title
             wp_redirect(get_home_url() . '/inscription?id=' . $workshop_id . '&problem' );
