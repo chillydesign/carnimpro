@@ -1,0 +1,38 @@
+
+
+
+<table id="stats_table">
+
+<thead>
+<tr>
+    <th>Atelier</th>
+    <th>Nombre de places</th>
+    <th>Nombre d'inscrits</th>
+    <th>Pourcentage</th>
+</tr>
+
+</thead>
+<tbody>
+
+
+
+ <%  _.each(workshops,function(workshop,key,list){  %>
+
+
+<tr>
+
+    <td><a href="<%= workshop.guid %>"><%= workshop.post_title %></a></td>
+    <td><%= workshop.no_students %></td>
+    <td><%= workshop.inscriptions_size %></td>
+    <td><%= workshop.percentage_filled %>%</td>
+
+</tr>
+
+
+
+
+<% }) %>
+
+</tbody>
+
+</table>

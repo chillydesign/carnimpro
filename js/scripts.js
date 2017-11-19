@@ -1,4 +1,6 @@
 
+import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.js';
+
 (function ($, root, undefined) {
 
     $(function () {
@@ -113,6 +115,22 @@
 
 
 
+
+
+        // UNDERSCORE
+        if (typeof stats_url != 'undefined' ) {
+
+            var $statistics_container = $('#statistics_container');
+            var $statistics_template = $('#statistics_template').html();
+            $.ajax({
+                url: stats_url
+            }).done(function( data ) {
+
+                var stats_compiled =  _.template($statistics_template);
+                displayStatistics(data, $statistics_container, stats_compiled);
+
+            });
+        }
 
 
 
@@ -325,6 +343,34 @@ function displayWorkshops(workshops, workshops_container, compiled){
 
 
 
+
+
+}
+
+
+
+function displayStatistics(workshops, container, compiled){
+
+    var s_workshops =  _.toArray(workshops)  ;//  CONVERT  OBJECT TO ARRAY
+
+    for (var i = 0; i < s_workshops.length ; i++) {
+        var workshop = workshops[i];
+
+        if (parseInt(workshop['no_students']) > 0) {
+            workshop['percentage_filled'] =  Math.round(  parseInt(workshop['inscriptions_size']) /   parseInt(workshop['no_students']) * 100);
+        } else {
+            workshop['percentage_filled'] = '-';
+        }
+
+
+
+    }
+
+
+    container.html(  compiled({ workshops:   s_workshops  })  );
+
+
+    $('#stats_table').tablesorter();
 
 
 }
