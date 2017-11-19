@@ -39,8 +39,8 @@
                         <tr>
                             <td><?php echo get_field('jour' ); ?></td>
                             <td><?php echo get_field('heures' ); ?></td>
-                            <td><?php echo get_field('centre' ); ?></td>
-                            <td><?php echo get_field('age_range' ); ?></td>
+                            <td><?php echo get_field('centre_display' ); ?></td>
+                            <td><?php echo get_field('ages' ); ?></td>
                             <td><?php echo get_field('levels' ); ?></td>
                             <td><?php echo  nl2br( get_field('teachers' )); ?></td>
                             <td>

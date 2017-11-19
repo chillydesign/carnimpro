@@ -12,7 +12,7 @@ $locations = search_form_locations();
     <div class="container">
 
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <input type="text" name="keyword" id="keyword"  placeholder="mot clef" />
                 <div class="form_button">
                     <span>tranche d'âge</span>
