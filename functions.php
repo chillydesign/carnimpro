@@ -88,7 +88,7 @@ function webfactor_nav()
 }
 
 function wf_version(){
-  return '0.0.3';
+  return '0.0.4';
 }
 
 // Load HTML5 Blank scripts (header.php)
@@ -712,16 +712,18 @@ function get_professeurs() {
 function search_form_ages(){
 
 $age_tranches = array(
+    '5-8 ans',
+    '8-11 ans',
     '12-16 ans',
     '12-16 ans et plus',
-    '8-11 ans',
-    '5-8 ans',
     '17 ans et plus',
     'tout âge'
 );
 
 return $age_tranches;
 }
+
+
 
 function search_form_levels(){
     $levels = array(
@@ -736,36 +738,20 @@ function search_form_levels(){
     return $levels;
 }
 
+
+
+
+
 function search_form_discplines(){
     $disciplines = array(
-        'danse et théâtre ouvert à tous',
         'musique',
-        'musique atelier cordes frottées',
-        'musique atelier guitaristes',
-        'musique atelier jeunes pianistes',
-        'musique atelier pianistes',
-        'musique atelier vents',
-        'musique atelier violonistes',
-        'musique atelier vocal',
-        'musique clavier',
-        'musique cordes frottées et piano',
-        'musique et danse ouvert aux musiciens qui accompagneront les danseurs, 2 pianistes maximum',
-        'musique et théâtre',
-        'musique et électroacoustique',
-        'musique Filière Intensive',
-        'musique instruments mélodiques',
-        'musique instrumentsde dessus flûtes, violon, hautbois, sax',
-        'musique ouvert aux danseurs',
-        'musique ouvert aux harpistes',
         'musique ouvert à tous',
-        'musique piano',
-        'musique vents',
-        'musique vocale',
-        'musique, danse et dessin',
-        'ouvert à tous',
-        'théâtre et musique',
-        'théâtre et musique ouvert aux comédiens et aux percussionistes',
-        'théâtre ouvert à tous'
+        'musique et théâtre',
+        'musique et danse',
+        'musique Filière Intensive',
+        'théâtre ouvert à tous',
+        'danse et théâtre',
+        'ouvert à tous'
     );
     return $disciplines;
 }
@@ -775,73 +761,36 @@ function search_form_locations(){
 
     $locations = array(
         "Auditoire Calvin",
-        "Champel, salle 161",
-        "Champel, salle 162",
-        "Chêne-Bourg, salle 1-2",
-        "Chêne-Bourg, salle 3",
+        "Champel",
+        "Chêne-Bourg",
         "Cologny",
-        "Confignon école",
-        "Confignon, Ancienne école",
-        "Confignon, Maison Briefer",
-        "Confignon, salle rez",
+        "Confignon",
         "Eaux-Vives/Clos",
-        "Eglise Saint-Pierre (Thônex) 35 av. Thônex",
-        "Grand-Lancy, salle 15",
-        "Grand-Lancy, salle 21",
-        "Grand-Lancy, salle 22",
-        "Grand-Lancy, salle 24",
-        "Grand-Lancy, salle d'auditions",
-        "Grand-Lancy, salle de danse",
-        "Ivernois électro-acoustique",
-        "Ivernois, GDA",
-        "Ivernois, GdA",
-        "Ivernois, salle 14",
-        "Ivernois, salle 16",
-        "Ivernois, salle 18",
-        "Ivernois, salle 22",
-        "Ivernois, salle 25",
-        "Ivernois, salle 28",
-        "Ivernois, salle d'ensemble",
-        "Ivernois, salle de danse",
-        "Ivernois, salle voûtée",
-        "Ivernois, salle Vuataz",
+        "Grand-Lancy",
+        "Ivernois",
+        "Jonction",
         "Jonction Danse",
-        "Jonction, salle 01",
-        "Jonction, salle 1",
-        "Jonction, salle 14",
-        "Jonction, salle 15",
-        "Jonction, salle 2",
-        "Jonction, salle 8",
-        "Jonction, salle d'auditions",
-        "Lignon, salle d'auditions",
+        "Le Sappay",
+        "Lignon",
         "Micheli-du-Crest",
         "Perly",
-        "Petit-Lancy, salle d'auditions",
-        "Petit-Lancy, salle I21",
-        "Petit-Lancy, salle I22",
-        "Petit-Saconnex, salle de rythmique de l'école des Crêts",
+        "Petit-Lancy",
+        "Petit-Saconnex",
         "Pré-Picot",
-        "Pâquis - Perform'Art",
-        "Pâquis cet atelier sera suivi de la rencontre Perform'Art",
+        "Pâquis",
+        "Rhône",
         "Rhône Percussion",
         "Rhône Théâtre",
-        "Rhône, salle 102",
-        "Rhône, salle 104",
         "Satigny",
         "Seujet",
-        "Thônex, salle 3",
-        "Versoix, salle 1B",
-        "Versoix, salle 4",
+        "Thônex",
+        "Versoix",
         "Veyrier Bois-Gourmand",
-        "Vieusseux école",
-        "Vieusseux, A2",
-        "Vieusseux, A3",
-        "Vieusseux, Foyer",
-        "Vieusseux, foyer",
-        "Vieusseux, salle d'auditions",
-        "Vieusseux, salle d'ensemble",
-        "Vieusseux, salle des vents",
-        "école des Grottes");
+        "Vieusseux",
+        "Vieusseux ",
+        "école des Grottes"
+
+    );
 
         return $locations;
 

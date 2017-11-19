@@ -142,7 +142,11 @@
                     displayWorkshops(data, $workshops_container, compiled);
                 });
 
-                $search_submit.prop('disabled', true);
+                $search_submit.on('click', function(e){
+                    e.preventDefault();
+                    $("html, body").animate({ scrollTop: $workshops_container.offset().top }, 1000);
+                });
+
 
 
 
