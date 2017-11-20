@@ -80,7 +80,7 @@ $locations = search_form_locations();
                     <div class="nicer_select">
 
                         <?php foreach ($locations as $location) : ?>
-                            <div class="nicer_option" data-value="<?php echo $location; ?>"><?php echo $location; ?></div>
+                            <div class="nicer_option" data-value="<?php echo $location; ?>"><?php echo ucfirst($location); ?></div>
                         <?php endforeach; ?>
 
 
