@@ -50,7 +50,7 @@
 
                             <td>
                                 <?php if(  $inscriptions_count <  $no_allowed_students ) : ?>
-                                <a href="<?php echo get_home_url(); ?>/inscription?id=<?php echo $other_id; ?>" class="button">Inscription</a>
+                                <a href="<?php echo get_home_url(); ?>/inscr?id=<?php echo $other_id; ?>" class="button">Inscription</a>
                                 <?php else:  ?>
                                     <a href="" class="button button_inactive" >Complet</a>
                                 <?php endif; ?>

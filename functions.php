@@ -490,7 +490,7 @@ function create_custom_post_types()
         'exclude_from_search' => true,
         'show_in_menu' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive' => false,
+        'has_archive' => true,
         'supports' => array(
             'title',
             'excerpt',

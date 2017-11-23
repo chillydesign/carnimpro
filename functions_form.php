@@ -19,19 +19,20 @@ function get_email_from_inscription_form () {
         // STUDENT DETAILS
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
-        $address = $_POST['address'];
+        $adresse = $_POST['adresse'];
         $postal = $_POST['postal'];
         $commune = $_POST['commune'];
         $tel = $_POST['tel'];
-        $email = trim($_POST['email']);
+        $mail = trim($_POST['mail']);
         $email_confirm = trim($_POST['email_confirm']);
         $professeur = $_POST['professeur'];
+        $instrument = $_POST['instrument'];
         $full_name = $prenom . ' ' . $nom;
 
         $workshop_id = $_POST['workshop_id'];
 
 
-        if ( $prenom != '' && $nom != ''  && ( $email == $email_confirm  )   ) {
+        if ( $prenom != '' && $nom != ''  && ( $mail == $email_confirm  )   ) {
 
             // WORKSHOP DETAILS
             $workshop_title = $_POST['workshop_title'];
@@ -99,12 +100,13 @@ function get_email_from_inscription_form () {
                 $email_content .= '<h3>Rappel des données</h3><table cellspacing="0" cellpadding="0" border="0" align="left" width="100%" style="max-width: 600px;"><tbody>
                 <tr><td style="width:25%">Nom</td><td>'. $nom .'</td></tr>
                 <tr><td style="width:25%">Prénom</td><td>'. $prenom .'</td></tr>
-                <tr><td style="width:25%">Adresse</td><td>'. $address .'</td></tr>
+                <tr><td style="width:25%">Adresse</td><td>'. $adresse .'</td></tr>
                 <tr><td style="width:25%">Code postal</td><td>'. $postal .'</td></tr>
                 <tr><td style="width:25%">Commune</td><td>'. $commune .'</td></tr>
                 <tr><td style="width:25%">Téléphone</td><td>'. $tel .'</td></tr>
-                <tr><td style="width:25%">Email</td><td>'. $email .'</td></tr>
+                <tr><td style="width:25%">Email</td><td>'. $mail .'</td></tr>
                 <tr><td style="width:25%">Professeur</td><td>'. $professeur .'</td></tr>
+                <tr><td style="width:25%">Instrument principal(s)</td><td>'. $instrument .'</td></tr>
                 </tbody></table>';
                 $email_content .= '<p>&nbsp;</p>';
                 $email_content .= '<p >A bientôt pour votre atelier<br/>L\'équipe CPMDT</p>';
@@ -115,7 +117,7 @@ function get_email_from_inscription_form () {
                 $email_start_for_student = '<h1 style="line-height:36px;font-size:26px;">Confirmation d\'inscription Carnimpro </h1>';
                 $email_start_for_student .= '<p>Merci pour votre inscription à l\'atelier ' . $workshop_title . ' </p><p>&nbsp;</p>';
                 $body_for_student = $email_header . $email_start_for_student . $email_content  . $email_footer;
-                wp_mail( $email, $subject_for_student, $body_for_student, $headers );
+                wp_mail( $mail, $subject_for_student, $body_for_student, $headers );
 
                 // EMAIL TO ADMIN
                 $email_start_for_admin =  '<h1 style="line-height:36px;font-size:26px;">Nouvelle inscription à l’atelier <br>' .$workshop_title .  '</h1>';
@@ -139,11 +141,11 @@ function get_email_from_inscription_form () {
 
 
         } else {  // end of if tehre is a free spot for enrollment
-            wp_redirect(get_home_url() . '/inscription?id=' . $workshop_id . '&problem&no_space' );
+            wp_redirect(get_home_url() . '/inscr?id=' . $workshop_id . '&problem&no_space' );
         } // if no free space for enrollment
 
         } else { // if we dont have first name, last name or workshop title
-            wp_redirect(get_home_url() . '/inscription?id=' . $workshop_id . '&problem' );
+            wp_redirect(get_home_url() . '/inscr?id=' . $workshop_id . '&problem' );
 
         }
 
@@ -161,20 +163,48 @@ function get_email_from_inscription_form () {
 
 function all_inscription_fields(){
 
-        return array(
-            'nom' => 'Nom',
-            'prenom' => 'Prenom',
-            'adresse' => 'Address',
-            'postal' => 'Postal',
-            'commune' => 'Commune',
-            'tel' => 'Tel',
-            'mail' => 'Email',
-            'workshop_title' => 'Workshop title',
-            'professeur' => 'Professeur'
+    return array(
+        'nom' => 'Nom',
+        'prenom' => 'Prenom',
+        'adresse' => 'Address',
+        'postal' => 'Postal',
+        'commune' => 'Commune',
+        'tel' => 'Tel',
+        'mail' => 'Email',
+        'workshop_title' => 'Workshop title',
+        'professeur' => 'Professeur',
+        'instrument' => 'Instrument principal'
 
-        );
+    );
+}
+
+
+
+
+function inscription_meta_box_markup(){
+
+    $download_link = get_home_url() . '/api/v1/?download_inscriptions&workshop_id=' . $_GET['post'] ;
+    echo '<div class=" "><a style="display:block;text-align:center" class="action button-primary button" href="'. $download_link .'">Télécharger les inscriptions (csv)</a></div>';
+
+}
+
+function add_inscription_meta_box(){
+    add_meta_box("inscriptions-meta-box", " Inscriptions", "inscription_meta_box_markup", "workshop", "side", "high", null);
+}
+
+add_action("add_meta_boxes", "add_inscription_meta_box");
+
+
+add_action( 'manage_posts_extra_tablenav', 'add_download_link'  );
+function add_download_link($which){
+    if ( is_post_type_archive('inscription') ) {
+        if($which == 'bottom'){
+            $download_link = get_home_url() . '/api/v1/?download_inscriptions'  ;
+            echo '<div class="alignleft actions"><a class="action button-primary button" href="'. $download_link .'">Télécharger CSV</a></div>';
+        }
     }
 
+}
 
 
  ?>

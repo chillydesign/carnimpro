@@ -5,13 +5,14 @@
 <footer class="footer" role="contentinfo">
 
 
-                <div class="container">
+    <div class="container">
 
-                    <p>&copy; <?php echo date('Y'); ?>  <?php bloginfo('name'); ?>. <br /> Website by <a href="//webfactor.ch" title="Webfactor">Webfactor</a>.</p>
+        <p>&copy; <?php echo date('Y'); ?>  <?php bloginfo('name'); ?>. <br /> Website by <a href="//webfactor.ch" title="Webfactor" target="_blank" >Webfactor</a>.</p>
 
-                <img src="<?php echo $tdu;?>/img/conservatoire-populaire.png" alt="conservatoire populaire" />
-
-            </div>
+        <a target="_blank" href="https://cpmdt.ch/">
+            <img src="<?php echo $tdu;?>/img/conservatoire-populaire.png" alt="conservatoire populaire" />
+        </a>
+    </div>
 
 </footer>
 <!-- /footer -->

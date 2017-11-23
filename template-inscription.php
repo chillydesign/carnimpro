@@ -62,47 +62,71 @@ endif;
                                 </div>
 
                             </div>
-
                         </div>
+
+
+
+
 
                         <div class="row">
                             <div class="col-md-6">
-
-
                                 <div class="form_input">
-                                    <label for="tel">Téléphone</label>
-                                    <input type="text" name="tel" id="tel" />
+                                    <label for="mail">Email *</label>
+                                    <input type="text" name="mail" id="mail" />
                                 </div>
-
-                                <div class="form_input">
-                                    <label for="address">Adresse</label>
-                                    <input type="text" name="address" id="address" />
-                                </div>
-                                <div class="form_input">
-                                    <label for="postal">Code postal</label>
-                                    <input type="text" name="postal" id="postal" />
-                                </div>
-                                <div class="form_input">
-                                    <label for="commune">Commune</label>
-                                    <input type="text" name="commune" id="commune" />
-                                </div>
-
-
 
                             </div>
                             <div class="col-md-6">
-
-
-
-                                <div class="form_input">
-                                    <label for="email">Email *</label>
-                                    <input type="text" name="email" id="email" />
-                                </div>
                                 <div class="form_input">
                                     <label for="email_confirm">Confirmez l'email *</label>
                                     <input type="text" name="email_confirm" id="email_confirm" />
                                 </div>
 
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form_input">
+                                    <label for="adresse">Adresse</label>
+                                    <input type="text" name="adresse" id="adresse" />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form_input">
+                                    <label for="commune">Commune</label>
+                                    <input type="text" name="commune" id="commune" />
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form_input">
+                                    <label for="postal">Code postal</label>
+                                    <input type="text" name="postal" id="postal" />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form_input">
+                                    <label for="tel">Téléphone</label>
+                                    <input type="text" name="tel" id="tel" />
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form_input">
                                     <label for="professeur">Professeur</label>
                                     <select name="professeur">
@@ -114,21 +138,25 @@ endif;
                                     </select>
                                 </div>
 
-
-
-                                <div class="form_input">
-                                    <input type="hidden" name="action" value="inscription_form">
-                                    <input type="hidden" name="workshop_id" value="<?php echo $workshop_id; ?>">
-                                    <input type="hidden" name="workshop_title" value="<?php echo $workshop_title; ?>">
-                                    <label>&nbsp;</label>
-                                    <button id="inscription_button" name="submit_inscription_form" type="submit">Envoyer</button>
-                                </div>
-
-
                             </div>
-
-
+                            <div class="col-md-6">
+                                <div class="form_input">
+                                    <label for="instrument">Instrument principal</label>
+                                    <input type="text" name="instrument" id="instrument" maxlength="50" />
+                                </div>
+                            </div>
                         </div>
+
+
+
+                        <div class="form_input">
+                            <input type="hidden" name="action" value="inscription_form">
+                            <input type="hidden" name="workshop_id" value="<?php echo $workshop_id; ?>">
+                            <input type="hidden" name="workshop_title" value="<?php echo $workshop_title; ?>">
+                            <label>&nbsp;</label>
+                            <button id="inscription_button" name="submit_inscription_form" type="submit">Envoyer</button>
+                        </div>
+
 
 
 

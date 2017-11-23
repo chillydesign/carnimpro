@@ -39,7 +39,7 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
         // inscription form
         var $inscription_form = $('#inscription_form');
         var $inscription_button = $('#inscription_button');
-        var $email = $('#email');
+        var $email = $('#mail');
         var $email_confirm = $('#email_confirm');
         var $prenom = $('#prenom');
         var $nom = $('#nom');

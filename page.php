@@ -11,10 +11,8 @@
 
             <div class="row">
 
-                <div class="col-sm-6">
+                <div class="col-sm-8">
                     <h1><?php the_title(); ?></h1>
-
-
                     <?php if ($date) : ?>
                         <p class="date_of_event"><?php echo $date; ?></p>
                     <?php endif; ?>
@@ -23,10 +21,12 @@
                     </div>
 
                 </div>
-                <div class="col-sm-6">
-                    <img id="large_logo" src="<?php echo $tdu; ?>/img/logo.svg" alt="">
+                <div class="col-sm-4">
+                    <!-- <img id="large_logo" src="<?php echo $tdu; ?>/img/logo.svg" alt=""> -->
                 </div>
             </div>
+
+                <img id="large_logo_page"  src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="">
 
         </div>
     </section>
@@ -45,7 +45,7 @@
         <section id="contact">
             <div class="container">
                 <?php echo $contact; ?>
-            </div>    
+            </div>
         </section>
     <?php endif; ?>
 
