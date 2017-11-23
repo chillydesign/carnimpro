@@ -25,7 +25,17 @@ function get_email_from_inscription_form () {
         $tel = $_POST['tel'];
         $mail = trim($_POST['mail']);
         $email_confirm = trim($_POST['email_confirm']);
-        $professeur = $_POST['professeur'];
+        $professeur_id = $_POST['professeur'];
+
+
+        $professeur = '';
+        if ($professeur_id && $professeur_id != '') {
+            $professeur_post  = get_post( $professeur_id );
+            $professeur = $professeur_post->post_title;
+        }
+
+
+
         $instrument = $_POST['instrument'];
         $full_name = $prenom . ' ' . $nom;
 
@@ -71,7 +81,7 @@ function get_email_from_inscription_form () {
                 $fields = all_inscription_fields();
                 foreach ($fields as $field => $value ) {
                     if (isset($_POST[$field])){
-                        add_post_meta($new_inscription,  $field,  $_POST[$field] , true);
+                        add_post_meta($new_inscription,  $field,  $$field , true);
                     }
                 }
 
@@ -119,13 +129,28 @@ function get_email_from_inscription_form () {
                 $body_for_student = $email_header . $email_start_for_student . $email_content  . $email_footer;
                 wp_mail( $mail, $subject_for_student, $body_for_student, $headers );
 
-                // EMAIL TO ADMIN
+
+
+                // EMAIL TO ADMIN AND TEACHER
                 $email_start_for_admin =  '<h1 style="line-height:36px;font-size:26px;">Nouvelle inscription à l’atelier <br>' .$workshop_title .  '</h1>';
-                $admin_email = 'harvey.charles@gmail.com';
+                $admin_emails =  array('harvey.charles@gmail.com');
+
+                // if they have submitted a professeur and he has an email, also send them an email.
+                if ($professeur_post) {
+                    $prof_email = get_field('mail', $professeur_id  );
+                    if ($prof_email ) {
+                        if (trim($prof_email) != '') {
+                              array_push(    $admin_emails,  $prof_email);
+                        }
+                    }
+                }
+
+
+
                 $subject_for_admin = 'Nouvelle inscription';
                 $body_for_admin = $email_header . $email_start_for_admin . $email_content  . $email_footer;
 
-                wp_mail( $admin_email, $subject_for_admin, $body_for_admin, $headers );
+                wp_mail( $admin_emails, $subject_for_admin, $body_for_admin, $headers );
 
 
 

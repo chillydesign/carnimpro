@@ -132,7 +132,7 @@ endif;
                                     <select name="professeur">
                                         <option value="">-</option>
                                         <?php foreach ($professeurs as $professeur) { ?>
-                                            <option value="<?php echo $professeur->post_title; ?>"><?php echo $professeur->post_title; ?></option>
+                                            <option value="<?php echo $professeur->ID; ?>"><?php echo $professeur->post_title; ?></option>
                                         <?php  }; ?>
 
                                     </select>
