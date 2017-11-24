@@ -50,7 +50,7 @@ function get_email_from_inscription_form () {
             $jour =  get_field('jour', $workshop_id );
             $heures =  get_field('heures', $workshop_id );
             $centre =  get_field('centre', $workshop_id );
-            $age_range =  get_field('age_range', $workshop_id );
+            $age_range =  get_field('ages', $workshop_id );
             $levels =  get_field('levels', $workshop_id );
             $no_allowed_students =  get_field('no_students', $workshop_id );
             $teachers_of_workshop =   nl2br( get_field('teachers', $workshop_id ));
