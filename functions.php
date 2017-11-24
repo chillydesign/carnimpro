@@ -404,18 +404,18 @@ function create_custom_post_types()
     register_post_type('workshop', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Workshop', 'webfactor'), // Rename these to suit
+            'name' => __('Workshops', 'webfactor'), // Rename these to suit
             'singular_name' => __('Workshop', 'webfactor'),
-            'add_new' => __('Add New', 'webfactor'),
-            'add_new_item' => __('Add New Workshop', 'webfactor'),
-            'edit' => __('Edit', 'webfactor'),
-            'edit_item' => __('Edit Workshop', 'webfactor'),
-            'new_item' => __('New Workshop', 'webfactor'),
-            'view' => __('View Workshop', 'webfactor'),
-            'view_item' => __('View Workshop', 'webfactor'),
-            'search_items' => __('Search Workshop', 'webfactor'),
-            'not_found' => __('No Workshops found', 'webfactor'),
-            'not_found_in_trash' => __('No Workshops found in Trash', 'webfactor')
+            'add_new' => __('Ajouter', 'webfactor'),
+            'add_new_item' => __('Ajouter Workshop', 'webfactor'),
+            'edit' => __('Modifier', 'webfactor'),
+            'edit_item' => __('Modifier Workshop', 'webfactor'),
+            'new_item' => __('Nouveau Workshop', 'webfactor'),
+            'view' => __('Afficher Workshop', 'webfactor'),
+            'view_item' => __('Afficher Workshop', 'webfactor'),
+            'search_items' => __('Chercher un Workshop', 'webfactor'),
+            'not_found' => __('Aucun Workshop trouvé', 'webfactor'),
+            'not_found_in_trash' => __('Aucun Workshop trouvé dans la Corbeille', 'webfactor')
         ),
         'public' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
@@ -437,18 +437,18 @@ function create_custom_post_types()
     register_post_type('eleve', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Eleve', 'webfactor'), // Rename these to suit
-            'singular_name' => __('Eleve', 'webfactor'),
-            'add_new' => __('Add New', 'webfactor'),
-            'add_new_item' => __('Add New Eleve', 'webfactor'),
-            'edit' => __('Edit', 'webfactor'),
-            'edit_item' => __('Edit Eleve', 'webfactor'),
-            'new_item' => __('New Eleve', 'webfactor'),
-            'view' => __('View Eleve', 'webfactor'),
-            'view_item' => __('View Eleve', 'webfactor'),
-            'search_items' => __('Search Eleve', 'webfactor'),
-            'not_found' => __('No Eleves found', 'webfactor'),
-            'not_found_in_trash' => __('No Eleves found in Trash', 'webfactor')
+            'name' => __('Élève', 'webfactor'), // Rename these to suit
+            'singular_name' => __('Élève', 'webfactor'),
+            'add_new' => __('Ajouter', 'webfactor'),
+            'add_new_item' => __('Ajouter Élève', 'webfactor'),
+            'edit' => __('Modifier', 'webfactor'),
+            'edit_item' => __('Modifier l\'Élève', 'webfactor'),
+            'new_item' => __('Nouvel Élève', 'webfactor'),
+            'view' => __('Afficher Élève', 'webfactor'),
+            'view_item' => __('Afficher Élève', 'webfactor'),
+            'search_items' => __('Rechercher Élève', 'webfactor'),
+            'not_found' => __('Aucun Élève trouvé', 'webfactor'),
+            'not_found_in_trash' => __('Aucun Élève trouvé dans la corbeille', 'webfactor')
         ),
         'public' => true,
         'publicly_queryable'  => false,
@@ -474,16 +474,16 @@ function create_custom_post_types()
         'labels' => array(
             'name' => __('Inscription', 'webfactor'), // Rename these to suit
             'singular_name' => __('Inscription', 'webfactor'),
-            'add_new' => __('Add New', 'webfactor'),
-            'add_new_item' => __('Add New Inscription', 'webfactor'),
-            'edit' => __('Edit', 'webfactor'),
-            'edit_item' => __('Edit Inscription', 'webfactor'),
-            'new_item' => __('New Inscription', 'webfactor'),
-            'view' => __('View Inscription', 'webfactor'),
-            'view_item' => __('View Inscription', 'webfactor'),
-            'search_items' => __('Search Inscription', 'webfactor'),
-            'not_found' => __('No Inscriptions found', 'webfactor'),
-            'not_found_in_trash' => __('No Inscriptions found in Trash', 'webfactor')
+            'add_new' => __('Ajouter', 'webfactor'),
+            'add_new_item' => __('Ajouter Inscription', 'webfactor'),
+            'edit' => __('Modifier', 'webfactor'),
+            'edit_item' => __('Modifier Inscription', 'webfactor'),
+            'new_item' => __('Nouvelle Inscription', 'webfactor'),
+            'view' => __('Afficher Inscription', 'webfactor'),
+            'view_item' => __('Afficher Inscription', 'webfactor'),
+            'search_items' => __('Chercher Inscription', 'webfactor'),
+            'not_found' => __('Aucune Inscription trouvée', 'webfactor'),
+            'not_found_in_trash' => __('Aucune Inscription trouvée dans la Corbeille', 'webfactor')
         ),
         'public' => true,
         'publicly_queryable'  => false,
@@ -508,16 +508,16 @@ function create_custom_post_types()
         'labels' => array(
             'name' => __('Professeur', 'webfactor'), // Rename these to suit
             'singular_name' => __('Professeur', 'webfactor'),
-            'add_new' => __('Add New', 'webfactor'),
-            'add_new_item' => __('Add New Professeur', 'webfactor'),
-            'edit' => __('Edit', 'webfactor'),
-            'edit_item' => __('Edit Professeur', 'webfactor'),
-            'new_item' => __('New Professeur', 'webfactor'),
-            'view' => __('View Professeur', 'webfactor'),
-            'view_item' => __('View Professeur', 'webfactor'),
-            'search_items' => __('Search Professeur', 'webfactor'),
-            'not_found' => __('No Professeurs found', 'webfactor'),
-            'not_found_in_trash' => __('No Professeurs found in Trash', 'webfactor')
+            'add_new' => __('Ajouter', 'webfactor'),
+            'add_new_item' => __('Ajouter Professeur', 'webfactor'),
+            'edit' => __('Modifier', 'webfactor'),
+            'edit_item' => __('Modifier Professeur', 'webfactor'),
+            'new_item' => __('Nouveau Professeur', 'webfactor'),
+            'view' => __('Afficher Professeur', 'webfactor'),
+            'view_item' => __('Afficher Professeur', 'webfactor'),
+            'search_items' => __('Chercher Professeur', 'webfactor'),
+            'not_found' => __('Aucun Professeur trouvé', 'webfactor'),
+            'not_found_in_trash' => __('Aucun Professeur trouvé dans la Corbeille', 'webfactor')
         ),
         'public' => true,
         'publicly_queryable'  => false,
