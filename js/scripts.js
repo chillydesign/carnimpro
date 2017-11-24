@@ -60,6 +60,11 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
 
         });
 
+        $inscription_form.on('submit', function(){
+            console.log('disabled form');
+            $inscription_button.attr('disabled','disabled');
+        })
+
 
 
 
