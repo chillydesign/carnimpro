@@ -49,6 +49,8 @@ function get_email_from_inscription_form () {
                 'comment_author_email' => $mail
             );
 
+
+
             $is_message_spam = is_message_spam($spam_data);
 
             if ($is_message_spam == false) {
@@ -252,9 +254,10 @@ function user_has_registered_before( $mail, $workshop_id  ) {
         '&comment_author='. urlencode($data['comment_author']) .
         '&comment_author_email='. urlencode($data['comment_author_email']) ;
 
+
         $key = '52d37475e420';
         $host = $http_host = $key.'.rest.akismet.com';
-        $path = '/1.1/submit-spam';
+        $path = '/1.1/comment-check';
         $port = 443;
         $akismet_ua = "WordPress/4.4.1 | Akismet/3.1.7";
         $content_length = strlen( $request );
@@ -271,13 +274,13 @@ function user_has_registered_before( $mail, $workshop_id  ) {
             fwrite( $fs, $http_request );
 
             while ( !feof( $fs ) )
-            $response .= fgets( $fs, 1160 ); // One TCP-IP packet
+                $response .= fgets( $fs, 1160 ); // One TCP-IP packet
             fclose( $fs );
 
             $response = explode( "\r\n\r\n", $response, 2 );
         }
 
-        if ( 'Thanks for making the web a better place.' == $response[1] ) {
+        if ( 'true' == $response[1] ) {
             return true;
         } else {
             return false;

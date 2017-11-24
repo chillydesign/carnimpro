@@ -41,7 +41,17 @@ endif;
                 <div class="col-sm-6 col-sm-push-6 col-md-9 col-md-push-3">
 
                     <?php if ( isset($_GET['problem']) ): ?>
-                        <p class="alert">Une erreur s’est produite lors de votre inscription. Vérifiez que tous les champs obligatoires soient bien remplis et veuillez réessayer. </p>
+                        <p class="alert">
+                        <?php $prob = $_GET['problem']; ?>
+                        <?php if ($prob == 'no_space')  { ?>
+                            Malheureusement le cours est déjà complet. Veuillez vérifier si d'autres dates sont disponibles ou choisir un autre cours. En cas de questions vous pouvez nous contacter à l'adresse <a href="mailto: administration@conservatoirepopulaire.ch">administration@conservatoirepopulaire.ch</a>
+                        <?php } else if ($prob == 'registered_before') { ?>
+                            Vous êtes déjà inscrit à ce cours. En cas d'erreur veuillez nous contacter directement à l'adresse <a href="mailto: administration@conservatoirepopulaire.ch">administration@conservatoirepopulaire.ch</a>
+                        <?php } else { ?>
+                        Une erreur s’est produite lors de votre inscription. Vérifiez que tous les champs obligatoires soient bien remplis et veuillez réessayer.
+                        <?php }; ?>
+
+                    </p>
                     <?php endif; ?>
 
                     <form id="inscription_form" action="<?php echo  esc_url( admin_url('admin-post.php') ); ?>" method="post">
