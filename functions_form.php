@@ -117,7 +117,7 @@ function get_email_from_inscription_form () {
 
 
 
-                            $email_content = '<h3>Résumé de l\'inscription</h3><table cellspacing="0" cellpadding="0" border="0" align="left" width="100%" style="max-width: 600px;"><tbody>
+                            $email_content = '<h3>Résumé de l\'inscription</h3><table cellspacing="0" cellpadding="0" border="0" align="left" width="100%" ><tbody>
                             <tr><td style="width:25%">Atelier</td><td>'. $workshop_title .'</td></tr>
                             <tr><td style="width:25%">Jour</td><td>'. $jour .'</td></tr>
                             <tr><td style="width:25%">Horaire</td><td>'. $heures .'</td></tr>
@@ -127,7 +127,7 @@ function get_email_from_inscription_form () {
                             <tr><td style="width:25%">Professeur(s)</td><td>'. $teachers_of_workshop .'</td></tr>
                             </tbody></table>';
                             $email_content .= '<p>&nbsp;</p>';
-                            $email_content .= '<h3>Rappel des données</h3><table cellspacing="0" cellpadding="0" border="0" align="left" width="100%" style="max-width: 600px;"><tbody>
+                            $email_content .= '<h3>Rappel des données</h3><table cellspacing="0" cellpadding="0" border="0" align="left" width="100%" ><tbody>
                             <tr><td style="width:25%">Nom</td><td>'. $nom .'</td></tr>
                             <tr><td style="width:25%">Prénom</td><td>'. $prenom .'</td></tr>
                             <tr><td style="width:25%">Adresse</td><td>'. $adresse .'</td></tr>
@@ -136,7 +136,7 @@ function get_email_from_inscription_form () {
                             <tr><td style="width:25%">Téléphone</td><td>'. $tel .'</td></tr>
                             <tr><td style="width:25%">Email</td><td>'. $mail .'</td></tr>
                             <tr><td style="width:25%">Professeur</td><td>'. $professeur .'</td></tr>
-                            <tr><td style="width:25%">Instrument principal(s)</td><td>'. $instrument .'</td></tr>
+                            <tr><td style="width:25%">Instrument(s) principal(aux)</td><td>'. $instrument .'</td></tr>
                             </tbody></table>';
                             $email_content .= '<p>&nbsp;</p>';
                             $email_content .= '<p >A bientôt pour votre atelier<br/>L\'équipe CPMDT</p>';

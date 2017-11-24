@@ -109,8 +109,9 @@ endif;
                             </div>
                             <div class="col-md-6">
                                 <div class="form_input">
-                                    <label for="commune">Commune</label>
-                                    <input type="text" name="commune" id="commune" />
+                                    <label for="postal">Code postal</label>
+                                    <input type="text" name="postal" id="postal" />
+
                                 </div>
 
                             </div>
@@ -120,8 +121,8 @@ endif;
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form_input">
-                                    <label for="postal">Code postal</label>
-                                    <input type="text" name="postal" id="postal" />
+                                    <label for="commune">Commune</label>
+                                    <input type="text" name="commune" id="commune" />
                                 </div>
 
                             </div>
@@ -142,7 +143,7 @@ endif;
                                     <select name="professeur">
                                         <option value="">-</option>
                                         <?php foreach ($professeurs as $professeur) { ?>
-                                            <option value="<?php echo $professeur->ID; ?>"><?php echo $professeur->post_title; ?></option>
+                                            <option value="<?php echo $professeur->ID; ?>"><?php echo ($professeur->post_title); ?></option>
                                         <?php  }; ?>
 
                                     </select>
@@ -151,7 +152,7 @@ endif;
                             </div>
                             <div class="col-md-6">
                                 <div class="form_input">
-                                    <label for="instrument">Instrument principal</label>
+                                    <label for="instrument">Instrument(s) principal(aux)</label>
                                     <input type="text" name="instrument" id="instrument" maxlength="50" />
                                 </div>
                             </div>

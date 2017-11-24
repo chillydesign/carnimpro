@@ -719,6 +719,15 @@ function get_professeurs() {
 }
 
 
+function capitalize_last_name($name) {
+    $split = explode(' ', $name);
+    end($split);
+    $key = key($split);
+    reset($split);
+    $split[$key] = strtoupper( $split[$key] );
+    return implode(' ', $split);
+}
+
 
 
 function search_form_ages(){
