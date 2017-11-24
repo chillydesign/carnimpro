@@ -153,7 +153,7 @@ function get_email_from_inscription_form () {
 
                             // EMAIL TO ADMIN AND TEACHER
                             $email_start_for_admin =  '<h1 style="line-height:36px;font-size:26px;">Nouvelle inscription à l’atelier <br>' .$workshop_title .  '</h1>';
-                            $admin_emails =  array('harvey.charles@gmail.com');
+                            $admin_emails =  array('inscription@carnimpro.ch');
 
                             // if they have submitted a professeur and he has an email, also send them an email.
                             if ($professeur_post) {
