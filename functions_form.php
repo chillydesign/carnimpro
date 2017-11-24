@@ -42,7 +42,6 @@ function get_email_from_inscription_form () {
             $user_agent = $_SERVER['HTTP_USER_AGENT'];
             $referrer = $_SERVER['HTTP_REFERER'];
             $spam_data = array(
-                'blog' => 'https://carnimpro.ch/',
                 'user_ip' => $user_ip,
                 'user_agent' => $user_agent,
                 'referrer' => $referrer,
@@ -52,7 +51,7 @@ function get_email_from_inscription_form () {
 
             $is_message_spam = is_message_spam($spam_data);
 
-            if ($is_message_spam) {
+            if ($is_message_spam == false) {
 
                 $user_has_registered_before = user_has_registered_before( $mail, $workshop_id  );
                 if ($user_has_registered_before == false) {
@@ -93,7 +92,7 @@ function get_email_from_inscription_form () {
 
 
                         if ($new_inscription == 0) {
-                            wp_redirect(get_home_url() . '/inscription?id=' . $workshop_id . '&problem' );
+                            wp_redirect(get_home_url() . '/inscription?id=' . $workshop_id . '&problem=didntsave' );
                         } else {
 
 
@@ -242,9 +241,10 @@ function user_has_registered_before( $mail, $workshop_id  ) {
 
 
     function is_message_spam( $data ) {
+
         // return true is SPAM
         // return false its a good person
-        $request = 'blog='. urlencode($data['blog']) .
+        $request = 'blog='. urlencode('https://carnimpro.ch/') .
         '&user_ip='. urlencode($data['user_ip']) .
         '&user_agent='. urlencode($data['user_agent']) .
         '&referrer='. urlencode($data['referrer']) .
