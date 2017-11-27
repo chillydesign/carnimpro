@@ -15,6 +15,10 @@
 
         input, .form_button, button, textarea, select, .button  {
             border: 0;
+
+            &.something_selected {
+                background-color: adjust_hue(darken($yellow, 5),10);
+            }
         }
     }
 

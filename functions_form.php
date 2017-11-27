@@ -109,7 +109,7 @@ function get_email_from_inscription_form () {
 
 
 
-                            $headers = 'From: CarnImprov<noreply@carnimprov.ch>' . "\r\n";
+                            $headers = 'From: CarnImpro <inscription@carnimpro.ch>' . "\r\n";
                             $email_header = file_get_contents(dirname(__FILE__) . '/email/email_header.php');
                             $email_footer = file_get_contents(dirname(__FILE__) . '/email/email_footer.php');
                             add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
@@ -160,7 +160,7 @@ function get_email_from_inscription_form () {
                                 $prof_email = get_field('mail', $professeur_id  );
                                 if ($prof_email ) {
                                     if (trim($prof_email) != '') {
-                                        array_push(    $admin_emails,  $prof_email);
+                                        array_push(  $admin_emails,  $prof_email);
                                     }
                                 }
                             }

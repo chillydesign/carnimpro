@@ -94,7 +94,8 @@ $locations = search_form_locations();
 
                 </div>
 
-                <button id="search_submit" name="search_submit">chercher</button>
+                <!-- <button id="search_submit" name="search_submit">chercher</button> -->
+                 <button id="reinitialiser" name="search_submit">Réinitialiser</button> 
 
 
 

@@ -85,6 +85,8 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
                 $('.nicer_select').not($nicer_select).removeClass('visible');  // hide others
 
 
+
+
             }); // end of when you click on a form button
 
 
@@ -113,6 +115,17 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
 
                     };
                 }
+
+                var size_of_checked_children =  $('.nicer_option.checked', $button).length;
+                // mark form buttons with a colour if one of their children is selected
+                if (size_of_checked_children > 0) {
+                    $button.addClass('something_selected');
+                } else {
+                    $button.removeClass('something_selected');
+                }
+
+
+
 
             }) // end of when you click on a nice option
 
@@ -146,6 +159,7 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
             var $workshops_template = $('#workshops_template').html();
             var $keyword = $('#keyword');
             var $search_submit = $('#search_submit');
+            var $reinitialiser = $('#reinitialiser').hide();
             var $search_checks = $('#rechercher input[type="checkbox"]');
 
 
@@ -169,6 +183,18 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
                     e.preventDefault();
                     $("html, body").animate({ scrollTop: $workshops_container.offset().top }, 1000);
                 });
+
+                $reinitialiser.on('click', function(e){
+                    e.preventDefault();
+                    $search_checks.each(function(){
+                        $(this).prop('checked', false);
+                    })
+                    $('.nicer_option').removeClass('checked');
+                    $('.form_button').removeClass('something_selected');
+                    $keyword.val('');
+                    displayWorkshops(data, $workshops_container, compiled);
+
+                })
 
 
 
@@ -305,6 +331,7 @@ function processWorkshops(workshops, search, ages, levels, days, disciplines,  l
 
 function displayWorkshops(workshops, workshops_container, compiled){
     var $keyword = $('#keyword');
+    var $reinitialiser = $('#reinitialiser')
     var $search_val = $keyword.val().toLowerCase();
 
     var $ages = new Array();
@@ -337,6 +364,18 @@ function displayWorkshops(workshops, workshops_container, compiled){
     });
 
 
+    if (
+        $ages.length > 0 ||
+        $days.length > 0 ||
+        $levels.length > 0 ||
+        $locations.length > 0 ||
+        $disciplines.length > 0 ||
+        $search_val.length > 0
+    ) {
+        $reinitialiser.show();
+    } else {
+        $reinitialiser.hide();
+    }
 
 
 
