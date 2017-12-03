@@ -9,6 +9,7 @@
     <th>Nombre de places</th>
     <th>Nombre d'inscrits</th>
     <th>Pourcentage</th>
+    <th>Inscriptions</th>
 </tr>
 
 </thead>
@@ -25,6 +26,7 @@
     <td><%= workshop.no_students %></td>
     <td><%= workshop.inscriptions_size %></td>
     <td><%= workshop.percentage_filled %>%</td>
+    <td class="download_td"><a class="download_button" href="https://carnimpro.ch/api/v1/?download_inscriptions&amp;workshop_id=<%= workshop.ID %>">&#8659;</a></td>
 
 </tr>
 

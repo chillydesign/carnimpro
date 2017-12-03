@@ -83,7 +83,20 @@
 
 }
 
-
+.download_td {
+    text-align: center;
+}
+.download_button {
+    background: url('../img/download.svg') no-repeat center center $blue;
+    text-indent: -9999px;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    width: 30px;
+    height: 30px;
+    background-size: 16px;
+    display: inline-block;
+}
 
 #inscription_form {
 
