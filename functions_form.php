@@ -67,7 +67,7 @@ function get_email_from_inscription_form () {
                     // WORKSHOP DETAILS
                     $workshop_title = $_POST['workshop_title'];
                     $workshop = get_post($workshop_id);
-                    $jour =  get_field('jour', $workshop_id );
+                    $jour =  convert_number_to_french_day(get_field('day', $workshop_id ));
                     $heures =  get_field('heures', $workshop_id );
                     $centre =  get_field('centre', $workshop_id );
                     $age_range =  get_field('ages', $workshop_id );

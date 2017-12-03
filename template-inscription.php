@@ -8,7 +8,7 @@ if ($workshop_id) :
     $workshop_title = $workshop->post_title;
     $professeurs = get_professeurs();
 
-    $jour =  get_field('jour', $workshop_id );
+    $jour = convert_number_to_french_day( get_field('day', $workshop_id ));
     $heures =  get_field('heures', $workshop_id );
     $centre =  get_field('centre', $workshop_id );
     $age_range =  get_field('age_range', $workshop_id );

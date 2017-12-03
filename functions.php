@@ -819,6 +819,38 @@ function search_form_locations(){
 
 
 
+function convert_number_to_french_day($number) {
+
+    switch ($number) {
+        case 1
+        return 'lundi':
+        break;
+        case 2
+        return 'mardi':
+        break;
+        case 3
+        return 'mercredi':
+        break;
+        case 4
+        return 'jeudi':
+        break;
+        case 5
+        return 'vendredi':
+        break;
+        case 6
+        return 'samedi':
+        break;
+        case 0
+        return 'dimanche':
+        break;
+
+        default:
+        return '-';
+        break;
+    }
+
+}
+
 
 include('functions_form.php');
 

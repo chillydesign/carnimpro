@@ -39,12 +39,20 @@
                         <?php $inscriptions = get_inscriptions_by_workshop_id($other_id); ?>
                         <?php $inscriptions_count =  sizeof($inscriptions); ?>
                         <?php $no_allowed_students =  intval(  get_field('no_students') ); ?>
+                        <?php $ages =  get_field('ages' ); ?>
 
                         <tr>
-                            <td><?php echo get_field('jour' ); ?></td>
+                            <td><?php echo convert_number_to_french_day(get_field('day' )); ?></td>
                             <td><?php echo get_field('heures' ); ?></td>
                             <td><?php echo get_field('centre_display' ); ?></td>
-                            <td><?php echo get_field('ages' ); ?></td>
+                            <td>
+                                <?php  if (is_array($ages)) : ?>
+                                    <?php echo implode(',', ($ages)); ?>
+                                <?php else : ?>
+                                        <?php echo $ages; ?>
+                                <?php endif; ?>
+
+                            </td>
                             <td><?php echo get_field('levels' ); ?></td>
                             <td><?php echo nl2br( get_field('teachers' )); ?></td>
 
