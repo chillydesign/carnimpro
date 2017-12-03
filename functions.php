@@ -736,7 +736,6 @@ $age_tranches = array(
     '5-8 ans',
     '8-11 ans',
     '12-16 ans',
-    '12-16 ans et plus',
     '17 ans et plus',
     'tout âge'
 );
@@ -822,26 +821,26 @@ function search_form_locations(){
 function convert_number_to_french_day($number) {
 
     switch ($number) {
-        case 1
-        return 'lundi':
+        case 1:
+        return 'lundi';
         break;
-        case 2
-        return 'mardi':
+        case 2:
+        return 'mardi';
         break;
-        case 3
-        return 'mercredi':
+        case 3:
+        return 'mercredi';
         break;
-        case 4
-        return 'jeudi':
+        case 4:
+        return 'jeudi';
         break;
-        case 5
-        return 'vendredi':
+        case 5:
+        return 'vendredi';
         break;
-        case 6
-        return 'samedi':
+        case 6:
+        return 'samedi';
         break;
-        case 0
-        return 'dimanche':
+        case 0:
+        return 'dimanche';
         break;
 
         default:
