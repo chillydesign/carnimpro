@@ -434,45 +434,45 @@ function create_custom_post_types()
     ));
 
 
-    register_post_type('eleve', // Register Custom Post Type
-        array(
-        'labels' => array(
-            'name' => __('Élève', 'webfactor'), // Rename these to suit
-            'singular_name' => __('Élève', 'webfactor'),
-            'add_new' => __('Ajouter', 'webfactor'),
-            'add_new_item' => __('Ajouter Élève', 'webfactor'),
-            'edit' => __('Modifier', 'webfactor'),
-            'edit_item' => __('Modifier l\'Élève', 'webfactor'),
-            'new_item' => __('Nouvel Élève', 'webfactor'),
-            'view' => __('Afficher Élève', 'webfactor'),
-            'view_item' => __('Afficher Élève', 'webfactor'),
-            'search_items' => __('Rechercher Élève', 'webfactor'),
-            'not_found' => __('Aucun Élève trouvé', 'webfactor'),
-            'not_found_in_trash' => __('Aucun Élève trouvé dans la corbeille', 'webfactor')
-        ),
-        'public' => true,
-        'publicly_queryable'  => false,
-        'exclude_from_search' => true,
-        'show_in_menu' => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive' => false,
-        'supports' => array(
-            'title',
-            'excerpt',
-            'thumbnail'
-        ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-        //    'post_tag',
-        //    'category'
-        ) // Add Category and Post Tags support
-    ));
+    //register_post_type('eleve', // Register Custom Post Type
+        //array(
+        //'labels' => array(
+            //'name' => __('Élève', 'webfactor'), // Rename these to suit
+            //'singular_name' => __('Élève', 'webfactor'),
+            //'add_new' => __('Ajouter', 'webfactor'),
+            //'add_new_item' => __('Ajouter Élève', 'webfactor'),
+            //'edit' => __('Modifier', 'webfactor'),
+            //'edit_item' => __('Modifier l\'Élève', 'webfactor'),
+            //'new_item' => __('Nouvel Élève', 'webfactor'),
+            //'view' => __('Afficher Élève', 'webfactor'),
+            //'view_item' => __('Afficher Élève', 'webfactor'),
+            //'search_items' => __('Rechercher Élève', 'webfactor'),
+            //'not_found' => __('Aucun Élève trouvé', 'webfactor'),
+            //'not_found_in_trash' => __('Aucun Élève trouvé dans la corbeille', 'webfactor')
+        //),
+        //'public' => true,
+        //'publicly_queryable'  => false,
+        //'exclude_from_search' => true,
+        //'show_in_menu' => true,
+        //'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        //'has_archive' => false,
+        //'supports' => array(
+            //'title',
+            //'excerpt',
+            //'thumbnail'
+        //), // Go to Dashboard Custom HTML5 Blank post for supports
+        //'can_export' => true, // Allows export in Tools > Export
+        //'taxonomies' => array(
+        ////    'post_tag',
+        ////    'category'
+        //) // Add Category and Post Tags support
+    //));
 
 
     register_post_type('inscription', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Inscription', 'webfactor'), // Rename these to suit
+            'name' => __('Inscriptions', 'webfactor'), // Rename these to suit
             'singular_name' => __('Inscription', 'webfactor'),
             'add_new' => __('Ajouter', 'webfactor'),
             'add_new_item' => __('Ajouter Inscription', 'webfactor'),
@@ -506,7 +506,7 @@ function create_custom_post_types()
     register_post_type('professeur', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Professeur', 'webfactor'), // Rename these to suit
+            'name' => __('Professeurs', 'webfactor'), // Rename these to suit
             'singular_name' => __('Professeur', 'webfactor'),
             'add_new' => __('Ajouter', 'webfactor'),
             'add_new_item' => __('Ajouter Professeur', 'webfactor'),
@@ -852,6 +852,32 @@ function convert_number_to_french_day($number) {
 
 
 include('functions_form.php');
+
+
+function remove_menus(){
+
+  remove_menu_page( 'index.php' );                  //Dashboard
+  remove_menu_page( 'edit.php' );                   //Posts
+  remove_menu_page( 'upload.php' );                 //Media
+  remove_menu_page( 'edit-comments.php' );          //Comments
+  remove_menu_page( 'themes.php' );                 //Appearance
+  // add_menu_page('Menu', 'Menu', 'manage_sites', 'nav-menus.php' );                 //Appearance
+  remove_menu_page( 'plugins.php' );                //Plugins
+  remove_menu_page( 'users.php' );               //Users
+  //remove_menu_page( 'tools.php' );                  //Tools
+  //remove_menu_page( 'options-general.php' );        //Settings
+  remove_menu_page( 'profile.php' );        //Settings
+  
+}
+add_action( 'admin_menu', 'remove_menus' );
+
+add_filter('acf/settings/show_admin', '__return_false');
+
+function remove_wpcf7() {
+    remove_menu_page( 'wpcf7' ); 
+}
+//add_action( 'admin_menu', 'remove_menus' );
+add_action('admin_menu', 'remove_wpcf7');
 
 
 
