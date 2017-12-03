@@ -1,10 +1,5 @@
 <?php /* Template Name: Stats Page Template */ get_header(); ?>
-<?php
 
-
-
-
-?>
 
 
 
@@ -14,6 +9,9 @@
     <article class="container">
 
         <h1><?php the_title(); ?></h1>
+        <?php if ( post_password_required() ) {
+          echo get_the_password_form();
+        } else { ?>
 
         <script type="text/javascript">
         	var stats_url = '<?php echo home_url(); ?>/api/v1/?inscriptions';
@@ -24,7 +22,7 @@
 
 
         <div class="container" id="statistics_container"></div>
-
+        <?php } ?> <!-- END OF IF PASSWORD PROTECTED -->
 
     </article>
     <!-- /article -->
@@ -44,8 +42,6 @@
     <!-- /article -->
 
 <?php endif; ?>
-
-
 
 
 <?php get_footer(); ?>
