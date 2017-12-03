@@ -748,13 +748,13 @@ return $age_tranches;
 
 function search_form_levels(){
     $levels = array(
-        'Initiation-palier I',
+        'initiation-palier I',
         'paliers I-II-III',
         'paliers II-III',
         'paliers IV-V-VI',
-        'Filière intensive',
+        'filière intensive',
         'piccolino-initiation',
-        'sans'
+        'tous niveaux'
     );
     return $levels;
 }
@@ -769,7 +769,7 @@ function search_form_discplines(){
         'musique ouvert à tous',
         'musique et théâtre',
         'musique et danse',
-        'musique Filière Intensive',
+        'musique filière intensive',
         'théâtre ouvert à tous',
         'danse et théâtre',
         'ouvert à tous'
@@ -787,7 +787,7 @@ function search_form_locations(){
         "Cologny",
         "Confignon",
         "Eaux-Vives/Clos",
-        "école des Grottes",
+        "Ecole des Grottes",
         "Grand-Lancy",
         "Ivernois",
         "Jonction Danse",
