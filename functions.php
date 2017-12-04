@@ -867,18 +867,36 @@ function remove_menus(){
   //remove_menu_page( 'tools.php' );                  //Tools
   //remove_menu_page( 'options-general.php' );        //Settings
   remove_menu_page( 'profile.php' );        //Settings
-  
+
 }
 add_action( 'admin_menu', 'remove_menus' );
 
 add_filter('acf/settings/show_admin', '__return_false');
 
 function remove_wpcf7() {
-    remove_menu_page( 'wpcf7' ); 
+    remove_menu_page( 'wpcf7' );
 }
 //add_action( 'admin_menu', 'remove_menus' );
 add_action('admin_menu', 'remove_wpcf7');
 
+add_filter( 'the_password_form', 'custom_password_form' );
+function custom_password_form() {
+    global $post;
+    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+    $o = '<form class="protected-post-form" action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '"
+ method="post">
+    ' . __( "<p style = \"margin-botton:-10px\">Pour accéder aux statistiques et aux inscriptions, merci d’entrer le mot de passe :</p>" ) . '
+    <label style="display:none;" class="pass-label" for="' . $label . '">' . __( "Mot de passe:" ) . ' </label><input placeholder="mot de passe" name="post_password" id="' . $label . '" type="password" style="background: #ffffff; border:1px solid #999; color:#333333;" size="20" /><input type="submit" name="Submit" class="button"  value="' . esc_attr__( "Accéder" ) . '" />
+    </form>
+    ';
+    return $o;
+}
 
+add_filter( 'private_title_format', 'myprefix_private_title_format' );
+add_filter( 'protected_title_format', 'myprefix_private_title_format' );
+
+function myprefix_private_title_format( $format ) {
+    return '%s';
+}
 
 ?>

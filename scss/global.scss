@@ -62,3 +62,46 @@ body {
         color: $font_color;
     }
 }
+
+.error404 {
+  article{
+    position: relative;
+    .inside_404{
+      position: absolute;
+      width: 100%;
+      top:25.5%;
+      background: rgba(255,255,255,0.8);
+      text-align: center;
+      padding: 10px;
+
+      h1 {
+        padding: 0;
+      }
+      p{
+        padding: 0;
+        font-size: 2.3em;
+      }
+    }
+  }
+}
+
+@media (max-width:1200px) {
+  .error404 article .inside_404 {
+    h1 { font-size: 3em; }
+    p { font-size: 1.9em; }
+  }
+}
+
+@media (max-width:992px) {
+  .error404 article .inside_404 {
+    h1 { font-size: 2.2em; }
+    p { font-size: 1.4em; }
+  }
+}
+
+@media (max-width:400px) {
+  .error404 article .inside_404 {
+    h1 { font-size: 1.5em; }
+    p { font-size: 1.4em; }
+  }
+}
