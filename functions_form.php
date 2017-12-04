@@ -170,7 +170,7 @@ function get_email_from_inscription_form () {
                             $email_start_for_student = '<h1 style="line-height:36px;font-size:26px;">Confirmation d\'inscription Carnimpro </h1>';
                             $email_start_for_student .= '<p>Merci pour votre inscription à l\'atelier ' . $workshop_title . ' </p><p>&nbsp;</p>';
                             $body_for_student = $email_header . $email_start_for_student . $email_content  . $email_footer;
-            //                wp_mail( $mail, $subject_for_student, $body_for_student, $headers );
+                            wp_mail( $mail, $subject_for_student, $body_for_student, $headers );
 
 
 
@@ -193,7 +193,7 @@ function get_email_from_inscription_form () {
                             $subject_for_admin = 'Nouvelle inscription';
                             $body_for_admin = $email_header . $email_start_for_admin . $email_content  . $email_footer;
 
-                //            wp_mail( $admin_emails, $subject_for_admin, $body_for_admin, $headers );
+                           wp_mail( $admin_emails, $subject_for_admin, $body_for_admin, $headers );
 
 
 
