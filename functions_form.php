@@ -55,10 +55,33 @@ function get_email_from_inscription_form () {
 
             if ($is_message_spam == false) {
 
-                $user_has_registered_before = user_has_registered_before( $mail, $workshop_id  );
-                if ($user_has_registered_before == false) {
+                $can_register_now = true;
+                $prenom_has_registered_before = false;
+
+                // this returns id of previous inscription if email used before
+                $email_has_registered_before = email_has_registered_before( $mail, $workshop_id  );
+
+                // if email registered before, check also if firstnam registered before
+                if ($email_has_registered_before) {
+
+                    $prev_inscription_ids  = $email_has_registered_before;
+                    $prenom_has_registered_before = prenom_has_registered_before( $prenom, $workshop_id, $prev_inscription_ids  );
+
+                    if ($prenom_has_registered_before) {
+                        $can_register_now = false;
+                    }
+
+
+                }
+
+
+                if ($can_register_now) {
+
+
+
 
                     $professeur = '';
+                    $professeur_post = false;
                     if ($professeur_id && $professeur_id != '') {
                         $professeur_post  = get_post( $professeur_id );
                         $professeur = $professeur_post->post_title;
@@ -147,7 +170,7 @@ function get_email_from_inscription_form () {
                             $email_start_for_student = '<h1 style="line-height:36px;font-size:26px;">Confirmation d\'inscription Carnimpro </h1>';
                             $email_start_for_student .= '<p>Merci pour votre inscription à l\'atelier ' . $workshop_title . ' </p><p>&nbsp;</p>';
                             $body_for_student = $email_header . $email_start_for_student . $email_content  . $email_footer;
-                            wp_mail( $mail, $subject_for_student, $body_for_student, $headers );
+            //                wp_mail( $mail, $subject_for_student, $body_for_student, $headers );
 
 
 
@@ -170,7 +193,7 @@ function get_email_from_inscription_form () {
                             $subject_for_admin = 'Nouvelle inscription';
                             $body_for_admin = $email_header . $email_start_for_admin . $email_content  . $email_footer;
 
-                            wp_mail( $admin_emails, $subject_for_admin, $body_for_admin, $headers );
+                //            wp_mail( $admin_emails, $subject_for_admin, $body_for_admin, $headers );
 
 
 
@@ -218,7 +241,7 @@ function get_email_from_inscription_form () {
 
 
 
-function user_has_registered_before( $mail, $workshop_id  ) {
+function email_has_registered_before( $mail, $workshop_id  ) {
     global $wpdb;
     $emails_query = $wpdb->get_results(
         $wpdb->prepare(
@@ -233,11 +256,51 @@ function user_has_registered_before( $mail, $workshop_id  ) {
 
         $emails =  array_map( function($row) { return $row->meta_value; }, $emails_query );
         // if email is already in the database for this course
-        return ( in_array( $mail, $emails  )  );
+        if ( in_array( $mail, $emails  ) ) {
+
+            $ids = array();
+            // return the ids of the inscriptions if email is present
+            foreach ($emails_query as $email_row) {
+                if ( $email_row->meta_value == $mail ) {
+                    array_push($ids, $email_row->ID);
+                }
+            }
+
+            return $ids;
 
 
+        } else {
+            return false;
+        }
     };
 
+    function prenom_has_registered_before( $prenom, $workshop_id, $prev_inscription_ids  ) {
+        global $wpdb;
+
+
+        $prev_ids_sql = 'wp_posts.ID =';
+        $prev_ids_sql .=  implode(' OR wp_posts.ID = ', $prev_inscription_ids);
+
+
+
+        $prenoms_query = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT meta_value, meta_id, ID, post_parent FROM $wpdb->postmeta
+                LEFT JOIN $wpdb->posts ON wp_posts.ID = wp_postmeta.post_id
+                WHERE post_type = 'inscription'
+                AND post_status = 'publish'
+                AND meta_key = 'prenom'
+                AND post_parent = %d
+                AND (  $prev_ids_sql )"
+                ,   $workshop_id)
+            );
+
+
+
+            $prenoms =  array_map( function($row) { return $row->meta_value; }, $prenoms_query );
+            // if email is already in the database for this course
+            return ( in_array( $prenom, $prenoms  )  );
+        };
 
 
 
