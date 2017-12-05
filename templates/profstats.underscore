@@ -1,0 +1,44 @@
+
+
+
+<table id="stats_table">
+
+<thead>
+<tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Tel</th>
+    <th>Email</th>
+    <th>Instrument</th>
+    <th>Workshop</th>
+
+</tr>
+
+</thead>
+<tbody>
+
+<%  _.each(inscriptions,function(inscription,key,list){  %>
+
+            <tr>
+                <td><%= inscription.nom %></td>
+                <td><%= inscription.prenom %></td>
+                <td><%= inscription.tel %></td>
+                <td><%= inscription.mail %></td>
+                <td><%= inscription.instrument %></td>
+                <td><%= inscription.workshop %></td>
+            </tr>
+
+
+
+
+<% }) %>
+</tbody>
+
+</table>
+
+
+
+
+
+
+</table>

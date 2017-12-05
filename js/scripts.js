@@ -47,7 +47,7 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
         $inscription_button.hide();
 
         $('input, select', $inscription_form).on('keyup change', function(){
-        
+
             if (
                 $email.val() == $email_confirm.val()  &&
                 $email.val() != '' &&
@@ -135,9 +135,32 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
 
 
 
+        // UNDERSCORE STATS FOR PROFS
+        if (typeof prof_stats_url != 'undefined' ) {
 
 
-        // UNDERSCORE
+            var $prof_statistics_container = $('#prof_statistics_container');
+            var $prof_statistics_template = $('#prof_statistics_template').html();
+            var $prof_chooser = $('#prof_chooser');
+            $.ajax({
+                url: prof_stats_url
+            }).done(function( data ) {
+
+                var stats_prof_compiled =  _.template($prof_statistics_template);
+                displayStatisticsForProfs(data, $prof_statistics_container, stats_prof_compiled);
+
+                $prof_chooser.on('change', function(){
+                    displayStatisticsForProfs(data, $prof_statistics_container, stats_prof_compiled)
+                });
+
+            });
+        }
+
+
+
+
+
+        // UNDERSCORE STATS
         if (typeof stats_url != 'undefined' ) {
 
             var $statistics_container = $('#statistics_container');
@@ -412,6 +435,37 @@ function displayWorkshops(workshops, workshops_container, compiled){
 
 }
 
+
+function displayStatisticsForProfs(inscriptions, container, compiled){
+
+    var $prof_chooser = $('#prof_chooser');
+    var prof = $prof_chooser.val();
+
+
+
+    if (prof == '' ) {
+        inscriptions = [];
+    } else {
+         inscriptions = _.reject(  inscriptions ,  function(w) {
+            return    (w.professeur ).indexOf(prof) == -1 ;
+        });
+    }
+
+    console.log('new workshops', inscriptions);
+
+        var s_inscriptions =  _.toArray(inscriptions)  ;//  CONVERT  OBJECT TO ARRAY
+
+
+    for (var i = 0; i < s_inscriptions.length ; i++) {
+        var inscription = inscriptions[i];
+
+    }
+
+
+    container.html(  compiled({ inscriptions:   s_inscriptions  })  );
+
+
+}
 
 
 function displayStatistics(workshops, container, compiled){
