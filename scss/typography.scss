@@ -115,7 +115,7 @@ th {
     font-size: $font_size;
 }
 
-tr:nth-child(4n+1) {
+tr:nth-child(2n) {
     td {
         background-color: transparentize(#ddd, 0.8);
     }

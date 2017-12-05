@@ -22,16 +22,11 @@
 
 <tr>
 
-    <td><a class="expand_inscriptions"  data-workshop="<%=  workshop.ID %>"  href="#"><%= workshop.post_title %></a></td>
-    <td><%= workshop.no_students %></td>
-    <td><%= workshop.inscriptions_size %></td>
-    <td><%= workshop.percentage_filled %>%</td>
-    <td class="download_td"><a class="download_button" href="https://carnimpro.ch/api/v1/?download_inscriptions&amp;workshop_id=<%= workshop.ID %>">&#8659;</a></td>
-</tr>
-<tr class="inscription_details"  id="inscription_details_<%=  workshop.ID %>"  >
-    <td colspan="5" >
+    <td >
 
+    <a class="expand_inscriptions"  data-workshop="<%=  workshop.ID %>"  href="#"><%= workshop.post_title %></a>
 
+    <div class="inscription_details"  id="inscription_details_<%=  workshop.ID %>" >
     <table>
     <thead>
     <tr>
@@ -65,10 +60,16 @@
     </tbody>
 
     </table>
+    </div>
+
+
 
     </td>
+    <td><%= workshop.no_students %></td>
+    <td><%= workshop.inscriptions_size %></td>
+    <td><%= workshop.percentage_filled %>%</td>
+    <td class="download_td"><a class="download_button" href="https://carnimpro.ch/api/v1/?download_inscriptions&amp;workshop_id=<%= workshop.ID %>">&#8659;</a></td>
 </tr>
-
 
 
 

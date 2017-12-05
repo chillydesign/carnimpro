@@ -154,8 +154,14 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
                     var $workshop_id = $this.data('workshop');
                     var $element = $('#inscription_details_' + $workshop_id.toString() );
 
-                    $('.inscription_details').removeClass('visible');
-                    $element.addClass('visible');
+                    if ($element.hasClass('visible')) {
+                        $('.inscription_details').removeClass('visible');
+                    } else {
+                        $('.inscription_details').removeClass('visible');
+                        $element.addClass('visible');
+                    }
+
+
 
 
                 })

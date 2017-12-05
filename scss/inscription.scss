@@ -83,6 +83,13 @@
 
 }
 
+
+// STATS PAGE
+#stats_table {
+    tr {
+        position: relative;
+    }
+}
 .download_td {
     text-align: center;
 }
@@ -98,20 +105,22 @@
     display: inline-block;
 }
 
-#inscription_form {
 
 
 
-
-}
-
-
-// STATS PAGE
 .inscription_details {
     visibility: hidden;
     display: none;
     &.visible {
         visibility: visible;
         display: table-row;
+        position: absolute;
+        top:50px;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 0 20px transparentize(black, 0.8);
+        background: white;
+        z-index: 5;
+        padding: 20px;
     }
 }
