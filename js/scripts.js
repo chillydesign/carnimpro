@@ -43,15 +43,17 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
         var $email_confirm = $('#email_confirm');
         var $prenom = $('#prenom');
         var $nom = $('#nom');
+        var $prof_val = $('#prof_val');
         $inscription_button.hide();
 
-        $('input', $inscription_form).on('keyup', function(){
-
+        $('input, select', $inscription_form).on('keyup change', function(){
+        
             if (
                 $email.val() == $email_confirm.val()  &&
                 $email.val() != '' &&
                 $prenom.val() != '' &&
-                $nom.val() != ''
+                $nom.val() != '' &&
+                $prof_val.val() != ''
             ) {
                 $inscription_button.show();
             } else {

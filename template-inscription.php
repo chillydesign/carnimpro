@@ -139,8 +139,8 @@ endif;
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form_input">
-                                    <label for="professeur">Professeur</label>
-                                    <select name="professeur">
+                                    <label for="professeur">Professeur *</label>
+                                    <select id="prof_val" name="professeur">
                                         <option value="">-</option>
                                         <?php foreach ($professeurs as $professeur) { ?>
                                             <option value="<?php echo $professeur->ID; ?>"><?php echo ($professeur->post_title); ?></option>
