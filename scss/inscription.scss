@@ -104,3 +104,14 @@
 
 
 }
+
+
+// STATS PAGE
+.inscription_details {
+    visibility: hidden;
+    display: none;
+    &.visible {
+        visibility: visible;
+        display: table-row;
+    }
+}

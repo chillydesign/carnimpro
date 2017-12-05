@@ -147,6 +147,19 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
                 var stats_compiled =  _.template($statistics_template);
                 displayStatistics(data, $statistics_container, stats_compiled);
 
+
+                $('.expand_inscriptions').on('click', function(e){
+                    e.preventDefault();
+                    var $this = $(this);
+                    var $workshop_id = $this.data('workshop');
+                    var $element = $('#inscription_details_' + $workshop_id.toString() );
+
+                    $('.inscription_details').removeClass('visible');
+                    $element.addClass('visible');
+
+
+                })
+
             });
         }
 

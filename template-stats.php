@@ -14,7 +14,7 @@
         } else { ?>
 
         <script type="text/javascript">
-        	var stats_url = '<?php echo home_url(); ?>/api/v1/?inscriptions';
+        	var stats_url = '<?php echo home_url(); ?>/api/v1/?extra_stats';
         </script>
         <script id="statistics_template" type="x-underscore">
         	<?php echo file_get_contents(dirname(__FILE__) . '/templates/statistics.underscore'); ?>
