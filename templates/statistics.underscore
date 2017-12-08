@@ -49,7 +49,9 @@
 <div class="container">
 <h2><%= workshop.post_title %></h2>
 <p class="date">
-  <%= workshop.date %>, <%= workshop.heures %><br><%= workshop.centre_display %>
+  Enseignants : <%= workshop.teachers_string %>
+  <br>
+  <%= workshop.date %>, <%= workshop.heures %> - <%= workshop.centre_display %>
 </p>
 <table>
 <thead>

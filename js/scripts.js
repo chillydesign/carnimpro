@@ -502,7 +502,7 @@ function displayStatistics(workshops, container, compiled){
             workshop['date'] = 'vendredi 9 février';
         }
 
-
+        workshop['teachers_string'] = workshop['teachers'].join(', ');
 
         }
 
