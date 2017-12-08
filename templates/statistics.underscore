@@ -6,10 +6,10 @@
 <thead>
 <tr>
     <th>Atelier</th>
-    <th>Nombre de places</th>
     <th>Nombre d'inscrits</th>
+    <th>Nombre de places</th>
     <th>Pourcentage</th>
-    <th>Inscriptions</th>
+    <th class="noprint">Inscriptions</th>
 </tr>
 
 </thead>
@@ -23,52 +23,12 @@
 <tr>
 
     <td >
-
     <a class="expand_inscriptions"  data-workshop="<%=  workshop.ID %>"  href="#"><%= workshop.post_title %></a>
-
-    <div class="inscription_details"  id="inscription_details_<%=  workshop.ID %>" >
-    <table>
-    <thead>
-    <tr>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Tel</th>
-        <th>Email</th>
-        <th>Instrument</th>
-        <th>Professeur</th>
-
-    </tr>
-
-    </thead>
-    <tbody>
-
-    <%  _.each(workshop.inscriptions,function(inscription,keyy,listt){  %>
-
-                <tr>
-                    <td><%= inscription.nom %></td>
-                    <td><%= inscription.prenom %></td>
-                    <td><%= inscription.tel %></td>
-                    <td><%= inscription.mail %></td>
-                    <td><%= inscription.instrument %></td>
-                    <td><%= inscription.professeur %></td>
-                </tr>
-
-
-
-
-    <% }) %>
-    </tbody>
-
-    </table>
-    </div>
-
-
-
     </td>
-    <td><%= workshop.no_students %></td>
     <td><%= workshop.inscriptions_size %></td>
+    <td><%= workshop.no_students %></td>
     <td><%= workshop.percentage_filled %>%</td>
-    <td class="download_td"><a class="download_button" href="https://carnimpro.ch/api/v1/?download_inscriptions&amp;workshop_id=<%= workshop.ID %>">&#8659;</a></td>
+    <td class="download_td noprint"><a class="download_button" href="https://carnimpro.ch/api/v1/?download_inscriptions&amp;workshop_id=<%= workshop.ID %>">&#8659;</a></td>
 </tr>
 
 
@@ -76,6 +36,55 @@
 
 <% }) %>
 
+
+
 </tbody>
 
 </table>
+
+ <%  _.each(workshops,function(workshop,key,list){  %>
+
+<div class="inscription_details"  id="inscription_details_<%=  workshop.ID %>" >
+<div class="close">&#43;</div>
+<div class="container">
+<h2><%= workshop.post_title %></h2>
+<p class="date">
+  <%= workshop.date %>, <%= workshop.heures %><br><%= workshop.centre_display %>
+</p>
+<table>
+<thead>
+<tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Téléphone</th>
+    <th>Email</th>
+    <th>Instrument</th>
+    <th>Professeur</th>
+
+</tr>
+
+</thead>
+<tbody>
+
+<%  _.each(workshop.inscriptions,function(inscription,keyy,listt){  %>
+
+            <tr>
+                <td><%= inscription.nom %></td>
+                <td><%= inscription.prenom %></td>
+                <td><%= inscription.tel %></td>
+                <td><%= inscription.mail %></td>
+                <td><%= inscription.instrument %></td>
+                <td><%= inscription.professeur %></td>
+            </tr>
+
+
+
+
+<% }) %>
+</tbody>
+
+</table>
+</div>
+</div>
+
+<% }) %>

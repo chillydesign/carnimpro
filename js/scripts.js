@@ -178,17 +178,26 @@ import tablesorter from '../node_modules/tablesorter/dist/js/jquery.tablesorter.
                     var $this = $(this);
                     var $workshop_id = $this.data('workshop');
                     var $element = $('#inscription_details_' + $workshop_id.toString() );
+                    var $parent_tr = $this.closest('tr');
+
 
                     if ($element.hasClass('visible')) {
                         $('.inscription_details').removeClass('visible');
+                        $('body').removeClass('bodyblocked');
+                        $('tr.show').removeClass('show');
                     } else {
                         $('.inscription_details').removeClass('visible');
                         $element.addClass('visible');
+                        $('body').addClass('bodyblocked');
+                        $parent_tr.addClass('show');
                     }
 
+                })
 
-
-
+                $('.close').on('click', function(){
+                  $('.visible').removeClass('visible');
+                  $('body').removeClass('bodyblocked');
+                  $('tr.show').removeClass('show');
                 })
 
             });
@@ -458,7 +467,6 @@ function displayStatisticsForProfs(inscriptions, container, compiled){
 
     for (var i = 0; i < s_inscriptions.length ; i++) {
         var inscription = inscriptions[i];
-
     }
 
 
@@ -482,8 +490,21 @@ function displayStatistics(workshops, container, compiled){
         }
 
 
+        if(workshop['day'] == 1){
+            workshop['date'] = 'lundi 5 février';
+        } else if (workshop['day'] == 2){
+            workshop['date'] = 'mardi 6 février';
+        } else if (workshop['day'] == 3){
+            workshop['date'] = 'mercredi 7 février';
+        } else if (workshop['day'] == 4){
+            workshop['date'] = 'jeudi 8 février';
+        } else {
+            workshop['date'] = 'vendredi 9 février';
+        }
 
-    }
+
+
+        }
 
 
     container.html(  compiled({ workshops:   s_workshops  })  );

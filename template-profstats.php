@@ -17,7 +17,7 @@
             <form action="">
                 <?php     $professeurs = get_professeurs(); ?>
                 <div class="form_input">
-                    <label for="professeur">Professeur *</label>
+                    <label class="noprint" for="professeur">Professeur *</label>
                     <select id="prof_chooser" name="professeur">
                         <option value="">-</option>
                         <?php foreach ($professeurs as $professeur) { ?>
