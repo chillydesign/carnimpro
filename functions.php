@@ -851,7 +851,43 @@ function convert_number_to_french_day($number) {
 }
 
 
-include('functions_form.php');
+
+
+function inscription_meta_box_markup(){
+    global $post;
+
+    if ($post->post_parent > 0) {
+        $workshop = get_post( $post->post_parent );
+        $day = get_field('day',  $workshop->ID  );
+        $heures = get_field('heures',  $workshop->ID  );
+        $centre_display = get_field('centre_display',  $workshop->ID  );
+        $teachers = get_field('teachers',  $workshop->ID  );
+        //var_dump($workshop);
+
+        $str = '<h4><a href="post.php?post='. $workshop->ID .'&action=edit">'. $workshop->post_title .'</a></h4><ul>';
+        $str .= '<li>Jour: '. convert_number_to_french_day($day) .'</li>';
+        $str .= '<li>Heures: '. $heures .'</li>';
+        $str .= '<li>Centre: '. $centre_display .'</li>';
+        $str .= '<li>Professeurs:  '. $teachers .'</li>';
+        $str .= '</ul>';
+
+        echo $str;
+
+    }
+
+    // $inscription_id =  $_GET['post'];
+    // $workshop = get_post(   )
+    // $download_link = get_home_url() . '/api/v1/?download_inscriptions&workshop_id=' . $_GET['post'] ;
+    // echo '<div class=" "><a style="display:block;text-align:center" class="action button-primary button" href="'. $download_link .'">Télécharger les inscriptions (csv)</a></div>';
+
+}
+
+function add_inscription_meta_box(){
+    add_meta_box("inscriptions-meta-box", " Workshop", "inscription_meta_box_markup", "inscription", "side", "high", null);
+}
+
+add_action("add_meta_boxes", "add_inscription_meta_box");
+
 
 
 function remove_menus(){
@@ -898,5 +934,10 @@ add_filter( 'protected_title_format', 'myprefix_private_title_format' );
 function myprefix_private_title_format( $format ) {
     return '%s';
 }
+
+
+
+include('functions_form.php');
+
 
 ?>

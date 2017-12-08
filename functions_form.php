@@ -372,18 +372,18 @@ function email_has_registered_before( $mail, $workshop_id  ) {
 
 
 
-    function inscription_meta_box_markup(){
+    function workshop_meta_box_markup(){
 
         $download_link = get_home_url() . '/api/v1/?download_inscriptions&workshop_id=' . $_GET['post'] ;
         echo '<div class=" "><a style="display:block;text-align:center" class="action button-primary button" href="'. $download_link .'">Télécharger les inscriptions (csv)</a></div>';
 
     }
 
-    function add_inscription_meta_box(){
-        add_meta_box("inscriptions-meta-box", " Inscriptions", "inscription_meta_box_markup", "workshop", "side", "high", null);
+    function add_workshop_meta_box(){
+        add_meta_box("workshop-meta-box", " Inscriptions", "workshop_meta_box_markup", "workshop", "side", "high", null);
     }
 
-    add_action("add_meta_boxes", "add_inscription_meta_box");
+    add_action("add_meta_boxes", "add_workshop_meta_box");
 
 
     add_action( 'manage_posts_extra_tablenav', 'add_download_link'  );
