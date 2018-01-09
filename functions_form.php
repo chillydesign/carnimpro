@@ -131,7 +131,7 @@ function get_email_from_inscription_form () {
                                     file_put_contents($logfile,"\r\n didnotinsertpost",FILE_APPEND);
                                     file_put_contents($logfile,  date('Y-m-d H:m') ,FILE_APPEND);
                                     wp_redirect(get_home_url() . '/inscription?id=' . $workshop_id . '&problem=didntsavenull' );
-                            } else { // wp_insert_post did not work for some reason
+                            } else { // wp_insert_post did work for some reason
 
                                 file_put_contents($logfile, "\r\n did insert post " . $new_inscription ,FILE_APPEND);
                                 file_put_contents($logfile,  date('Y-m-d H:m') ,FILE_APPEND);
