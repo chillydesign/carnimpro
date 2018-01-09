@@ -41,6 +41,15 @@ body {
     margin:0 0 30px;
 }
 
+.success {
+    background: lighten($green,10);
+    color:lighten($green,47);
+    border:1px solid darken($green,10);
+    border-radius: $border_radius;
+    padding: 20px;
+    margin:0 0 30px;
+}
+
 .box {
     padding: 30px;
     background: $light_grey;
