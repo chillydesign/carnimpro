@@ -121,6 +121,22 @@ function get_email_from_inscription_form () {
                         } else {
 
 
+                            // BUGFIX SOMTIMES NEWINSCRPITION SAYS IT INSERTED POST
+                            // BUT IT DIDNT, THIS CHECKS IF THERE ACTUALLY IS
+                            // A POST WITH THE ID THAT IT SAYS SHOULD BE TEHRE
+                            $check_post = get_post($new_inscription);
+                            $logfile =  get_template_directory() .  '/inscriptionslog.log';
+
+                            if (is_null($check_post )) {
+                                    file_put_contents($logfile,"\r\n didnotinsertpost",FILE_APPEND);
+                                    file_put_contents($logfile,  date('Y-m-d H:m') ,FILE_APPEND);
+                                    wp_redirect(get_home_url() . '/inscription?id=' . $workshop_id . '&problem=didntsavenull' );
+                            } else { // wp_insert_post did not work for some reason
+
+                                file_put_contents($logfile, "\r\n did insert post " . $new_inscription ,FILE_APPEND);
+                                file_put_contents($logfile,  date('Y-m-d H:m') ,FILE_APPEND);
+
+
                             $fields = all_inscription_fields();
                             foreach ($fields as $field => $value ) {
                                 if (isset($_POST[$field])){
@@ -177,7 +193,7 @@ function get_email_from_inscription_form () {
                             // EMAIL TO ADMIN AND TEACHER
                             $email_start_for_admin =  '<h1 style="line-height:36px;font-size:26px;">Nouvelle inscription à l’atelier <br>' .$workshop_title .  '</h1>';
                             $admin_emails =  array('inscription@carnimpro.ch');
-                        //    $admin_emails =  array('harvey.charles@gmail.com');
+                    //      $admin_emails =  array('harvey.charles@gmail.com');
 
                             // if they have submitted a professeur and he has an email, also send them an email.
                             if ($professeur_post) {
@@ -206,6 +222,10 @@ function get_email_from_inscription_form () {
                             //$redirect = get_home_url() . '/inscription-reussie/';
                             $redirect = get_home_url() . '/inscr/?success&id='  . $workshop_id;
                             wp_redirect( $redirect );
+
+
+                            } // if check post did return a wordpress post object from the newly inserted inscription
+
 
                         }; // if saved as custom post type OK
 
