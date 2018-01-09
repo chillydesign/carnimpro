@@ -5,6 +5,10 @@ add_action( 'admin_post_nopriv_inscription_form',    'get_email_from_inscription
 add_action( 'admin_post_inscription_form',  'get_email_from_inscription_form' );
 
 
+function validateEmail($email) {
+   return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
 
 
 function get_email_from_inscription_form () {
@@ -32,9 +36,9 @@ function get_email_from_inscription_form () {
 
         $workshop_id = $_POST['workshop_id'];
 
+        $email_valid =  validateEmail($mail) != false;
 
-
-        if ( $prenom != '' && $nom != ''  && ( $mail == $email_confirm  )    ) {
+        if ( $prenom != '' && $nom != ''  && ( $mail == $email_confirm  )  && $email_valid  ) {
 
 
             // SPAM check

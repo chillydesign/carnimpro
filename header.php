@@ -30,7 +30,7 @@
 <?php $home_url =  get_home_url(); ?>
 
             <div class="all_but_footer">
-                
+
             <header  id="header">
                 <div class="container">
 
