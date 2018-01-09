@@ -153,7 +153,7 @@
                 <tr>
 					<td bgcolor="#ffffff" align="center">
 
-                        <a href="https://webfactor.ch/projets/carnimpro/" target="_blank"><img src="https://webfactor.ch/projets/carnimpro/wp-content/themes/carnimpro/img/email_logo.jpg" width="100%" height=""  border="0" align="left" style="width: 100%; max-width:600px; margin-bottom: 0px;">
+                        <a href="https://carnimpro.ch/" target="_blank"><img src="https://carnimpro.ch/wp-content/themes/carnimpro/img/email_logo.jpg" width="100%" height=""  border="0" align="left" style="width: 100%; max-width:600px; margin-bottom: 0px;">
 						</a>
 					</td>
                 </tr>

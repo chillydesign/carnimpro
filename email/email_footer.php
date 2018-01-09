@@ -11,7 +11,7 @@
                 <tr style="background:#7ac3db">
                     <td style="padding: 10px;width: 33%; text-align: center; color:white;">
                        <!--  <webversion style="color:#666666; text-decoration:underline; font-weight: bold;">View as a Web Page</webversion> -->
-                        <a style="color:white; text-decoration: none;" href="https://webfactor.ch/projets/carnimpro/">Carnaval de l’improvisation.</a>
+                        <a style="color:white; text-decoration: none;" href="https://carnimpro.ch">Carnaval de l’improvisation.</a>
                     </td>
                 </tr>
             </table>
