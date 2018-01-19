@@ -1,0 +1,59 @@
+
+ <%  _.each(workshops,function(workshop,key,list){  %>
+
+<div class="inscription_details visible"  id="inscription_details_<%=  workshop.ID %>" >
+
+<div class="print_header">
+    <div class="container">
+
+    <div class="branding">
+        <img src="https://carnimpro.ch/wp-content/themes/carnimpro/img/logo.svg" alt="">
+        <span>Carnaval de l’improvisation</span>
+    </div>
+</div>
+</div>
+
+<div class="container">
+<h2><%= workshop.post_title %></h2>
+<p class="date">
+  Enseignants : <%= workshop.teachers_string %>
+  <br>
+  <%= workshop.date %>, <%= workshop.heures %> - <%= workshop.centre_display %>
+</p>
+<table>
+<thead>
+<tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Téléphone</th>
+    <th>Email</th>
+    <th>Instrument</th>
+    <th>Professeur</th>
+
+</tr>
+
+</thead>
+<tbody>
+
+<%  _.each(workshop.inscriptions,function(inscription,keyy,listt){  %>
+
+            <tr>
+                <td><%= inscription.nom %></td>
+                <td><%= inscription.prenom %></td>
+                <td><%= inscription.tel %></td>
+                <td><%= inscription.mail %></td>
+                <td><%= inscription.instrument %></td>
+                <td><%= inscription.professeur %></td>
+            </tr>
+
+
+
+
+<% }) %>
+</tbody>
+
+</table>
+</div>
+</div>
+
+<% }) %>

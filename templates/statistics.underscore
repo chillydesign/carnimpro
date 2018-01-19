@@ -23,7 +23,10 @@
 <tr>
 
     <td >
-    <a class="expand_inscriptions"  data-workshop="<%=  workshop.ID %>"  href="#"><%= workshop.post_title %></a>
+    <a style="border-bottom : 0; line-height:1.3em;" class="expand_inscriptions"  data-workshop="<%=  workshop.ID %>"  href="#">
+      <span style="border-bottom: 1px dotted #7ac3db;"><%= workshop.post_title %></span><br>
+      <span style="font-size: 0.8em; color: #adadad;"><%= workshop.date %>, <%= workshop.heures %> - <%= workshop.centre_display %></span>
+    </a>
     </td>
     <td><%= workshop.inscriptions_size %></td>
     <td><%= workshop.no_students %></td>
